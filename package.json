@@ -1,6 +1,6 @@
 {
     "name": "@ringpublishing/accelerator-images",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Client library for generating Ring Accelerator image transformation URLs",
     "main": "lib/index.js",
     "engines": {
