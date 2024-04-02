@@ -82,4 +82,3 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information about how to contr
 ## Issues
 
 If you're having problems with this library, please contact support@ringpublishing.com.
-

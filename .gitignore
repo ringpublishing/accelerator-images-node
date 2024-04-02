@@ -1,16 +1,9 @@
-# Editors
-/.idea
 /*.iml
+/.idea
 /.vscode
-
-# Nodejs
 /coverage
+/docs-md
+/docs/*
 /lib
 /node_modules
-
-# Docs
-docs/*
-!docs/Makefile
-docs-md/
-
-# Other
+!/docs/Makefile
