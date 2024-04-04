@@ -24,7 +24,8 @@ describe('schema', () => {
                     3: 'bmp',
                     4: 'tiff',
                     5: 'webp',
-                    6: 'avif'
+                    6: 'avif',
+                    7: 'auto'
                 }
             });
         });

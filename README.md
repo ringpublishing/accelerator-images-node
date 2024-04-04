@@ -10,9 +10,9 @@ and encode them into a URL that can be used in the website's HTML.
 
 ## Documentation
 
-- Full documentation of this library is available at: TODO
 - List of [available transformations](https://developer.ringpublishing.com/docs/Accelerator/topics/ocdn/transforms.html)
 - [Ring Accelerator Images variant](https://developer.ringpublishing.com/docs/Accelerator/topics/variant-types/images.html)
+- @ringpublishing/accelerator-images [API documentation](./docs/README.md)
 
 ### Quick start
 
@@ -22,6 +22,7 @@ Let's suppose that you have a content website example.com. that serves content w
 will help you to serve optimized images from a separate domain, e.g. images.example.com.
 
 First, you need to configure your Accelerator Images variant. You can do it by following the [official documentation](https://developer.ringpublishing.com/docs/Accelerator/topics/variant-types/images.html).
+In order for the `imageQuality('auto')` and `imageFormat('auto')` to work properly, in the variant configuration, enable [smart features](https://developer.ringpublishing.com/docs/Accelerator/topics/variant-types/images.html#smart-features).
 Accelerator Images variant will fetch original images that are stored in **your** S3 bucket, apply transformations and serve them to downstream.
 
 ```ts
@@ -73,6 +74,26 @@ const transformationUrl = 'https://images.example.com/1/hdDk9k_czM6Ly9zb21lLXMzL
 const transformationKey = 'abc'; // You need to know the transformation key that was used to encode the URL.
 
 const image = AcceleratorImage.fromTransformationUrl(transformationUrl, transformationKey);
+```
+
+### Legacy OCDN buckets
+
+If you are using a legacy OCDN bucket, you can use the `LegacyImage` class to define transformations. 
+
+`LegacyImage` generates valid OCDN v3 compliant transformation URLs, however it encodes the original image in a different way, so the resulting URL will be different
+compared to a URL generated with the legacy `dl-ocdn` library. These two transformed images will be exactly the same but once you switch from `dl-ocdn` to `@ringpublishing/accelerator-images`,
+Accelerator will regenerate the transformation.
+
+You have to keep in mind that this library supports only OCDN v3 format. The old OCDN v2 format is not supported.
+
+```ts
+const image = new LegacyImage({
+    originalImageUrl: 'https://ocdn.eu/pulscms/MDA_/987654321qwerty.jpg',
+    transformationKey: 'abc'
+});
+
+image.resizeCropAuto(210, 370);
+const url = image.getUrl();
 ```
 
 ## Development and contributing

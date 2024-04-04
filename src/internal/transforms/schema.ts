@@ -358,7 +358,8 @@ export const schema: AvailableTransformsSchema = {
                 3: 'bmp',
                 4: 'tiff',
                 5: 'webp',
-                6: 'avif'
+                6: 'avif',
+                7: 'auto'
             },
             default: 0
         },
@@ -369,7 +370,8 @@ export const schema: AvailableTransformsSchema = {
                 0: 'low',
                 1: 'medium',
                 2: 'high',
-                3: 'very-high'
+                3: 'very-high',
+                4: 'auto'
             },
             default: 1
         },

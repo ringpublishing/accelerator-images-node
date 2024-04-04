@@ -1,9 +1,10 @@
 {
     "name": "@ringpublishing/accelerator-images",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Client library for generating Ring Accelerator image transformation URLs",
     "license": "MIT",
     "repository": {},
+    "homepage": "https://developer.ringpublishing.com/docs/Accelerator/topics/images/index.html",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "engines": {
@@ -11,9 +12,7 @@
     },
     "scripts": {
         "build": "tsc",
-        "docs:generate": "typedoc --out docs/html src/",
-        "docs:generate:markdown": "typedoc --out docs/markdown --plugin typedoc-plugin-markdown src/",
-        "docs:generate:rst": "npm run docs:generate:markdown && cd docs && make",
+        "docs": "typedoc --out docs/ --readme none --plugin typedoc-plugin-markdown src/index.ts",
         "lint": "npm run lint:js",
         "lint:js": "eslint --ext .js,.jsx,.ts,.tsx src/ tests/",
         "lint:js:fix": "npm run lint:js -- --fix",

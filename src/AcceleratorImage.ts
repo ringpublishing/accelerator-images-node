@@ -198,7 +198,7 @@ export class AcceleratorImage extends ImageTransformBuilder {
     }
 
     /**
-     * Remove protocol from URL
+     * Remove protocol from the transformation URL
      *
      * @example
      * Here is a simple example:

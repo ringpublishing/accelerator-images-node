@@ -2,6 +2,13 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.3] - 2024-04-02
+### Changed
+- [@pniewiejski]: Removed typedoc RST and HTML documentation generation scripts. Preserve markdown documentation in the repository.
+
+### Fixed
+- [@pniewiejski]: `auto` setting for `imageFormat` and `imageQuality`
+
 ## [0.1.2] - 2024-04-02
 ### Fixed
 - [@pniewiejski]: Export `LegacyImage`.

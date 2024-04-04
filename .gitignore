@@ -2,8 +2,5 @@
 /.idea
 /.vscode
 /coverage
-/docs-md
-/docs/*
 /lib
 /node_modules
-!/docs/Makefile
