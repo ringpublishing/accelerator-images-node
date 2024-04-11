@@ -2,6 +2,10 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.4] - 2024-04-11
+### Fixed
+- [@mdulawa]: Fixed link to available transformations in README.md.
+
 ## [0.1.3] - 2024-04-02
 ### Changed
 - [@pniewiejski]: Removed typedoc RST and HTML documentation generation scripts. Preserve markdown documentation in the repository.

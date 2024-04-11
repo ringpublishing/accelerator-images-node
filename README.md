@@ -10,7 +10,7 @@ and encode them into a URL that can be used in the website's HTML.
 
 ## Documentation
 
-- List of [available transformations](https://developer.ringpublishing.com/docs/Accelerator/topics/ocdn/transforms.html)
+- List of [available transformations](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html)
 - [Ring Accelerator Images variant](https://developer.ringpublishing.com/docs/Accelerator/topics/variant-types/images.html)
 - @ringpublishing/accelerator-images [API documentation](./docs/README.md)
 
@@ -87,6 +87,8 @@ Accelerator will regenerate the transformation.
 You have to keep in mind that this library supports only OCDN v3 format. The old OCDN v2 format is not supported.
 
 ```ts
+import { LegacyImage } from '@ringpublishing/accelerator-images';
+
 const image = new LegacyImage({
     originalImageUrl: 'https://ocdn.eu/pulscms/MDA_/987654321qwerty.jpg',
     transformationKey: 'abc'
