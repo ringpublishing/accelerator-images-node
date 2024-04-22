@@ -450,7 +450,7 @@ export function getEncodedValue(schema: ParameterSchema | ArgumentSchema, value?
                 throw new InvalidParameter(`Value must be less than ${schema.maxValue}`);
             }
 
-            return value;
+            return Math.floor(value);
         }
         case 'boolean': {
             if (typeof value !== 'boolean') {

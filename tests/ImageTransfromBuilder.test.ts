@@ -129,6 +129,16 @@ describe('ImageTransformsBuilder', () => {
                 // Then
                 expect(setBlur).toThrow('Value must be less than 100');
             });
+
+            it('should encode fraction as integer', () => {
+                // Given
+                const builder = new ImageTransformBuilder();
+                // When
+                builder.blur(5.5);
+                // Then
+                expect(builder.getTransforms()).toEqual([[1, 5]]);
+                expect(builder.getBlur()).toEqual([5]);
+            });
         });
 
         describe('resize', () => {

@@ -2,6 +2,11 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.0] - 2024-04-15
+### Changed
+- [@pniewiejski]: Approved 1.0.0 release.
+- [@pniewiejski]: When encoding numbers that are expected to be integers disregard fractions.
+
 ## [0.1.4] - 2024-04-11
 ### Fixed
 - [@mdulawa]: Fixed link to available transformations in README.md.
