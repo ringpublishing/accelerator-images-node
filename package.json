@@ -1,9 +1,9 @@
 {
     "name": "@ringpublishing/accelerator-images",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Client library for generating Ring Accelerator image transformation URLs",
     "license": "MIT",
-    "repository": {},
+    "repository": "ringpublishing/accelerator-images-node",
     "homepage": "https://developer.ringpublishing.com/docs/Accelerator/topics/images/index.html",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
