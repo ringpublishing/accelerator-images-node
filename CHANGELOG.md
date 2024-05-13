@@ -1,6 +1,11 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.2] - 2024-05-10
+### Added
+- [@pniewiejski]: Quick start section of README contains an example of external image transformation.
+- [@pniewiejski]: Fixed `ReferenceError` when checking environment in `Decoder`.
+
 ## [1.0.1] - 2024-04-23
 ### Changed
 - [@mdulawa]: Added repository info to package.json.
@@ -19,7 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 - [@pniewiejski]: Removed typedoc RST and HTML documentation generation scripts. Preserve markdown documentation in the repository.
 
 ### Fixed
-- [@pniewiejski]: `auto` setting for `imageFormat` and `imageQuality`
+- [@pniewiejski]: `auto` setting for `imageFormat` and `imageQuality`.
 
 ## [0.1.2] - 2024-04-02
 ### Fixed
@@ -33,6 +38,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 ### Added
 - [@pniewiejski]: Initial version.
 
+[1.0.2]: https://github.com/ringpublishing/accelerator-images-node/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/ringpublishing/accelerator-images-node/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/ringpublishing/accelerator-images-node/compare/0.1.4...1.0.0
 [0.1.4]: https://github.com/ringpublishing/accelerator-images-node/compare/0.1.3...0.1.4

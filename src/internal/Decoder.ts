@@ -6,6 +6,9 @@ import { EncodedParameter } from './transforms/schema';
 export type RawTransformData = [string, EncodedParameter[][], Record<number, EncodedParameter>];
 export type OptionalRawTransformData = [string | undefined, EncodedParameter[][] | undefined, Record<number, EncodedParameter> | undefined];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isBufferAvailable = (): boolean => typeof Buffer as any !== 'undefined';
+
 export class Decoder {
     /**
      * Encodes Accelerator Image transformation data into a string
@@ -22,13 +25,13 @@ export class Decoder {
 
         let encodedDataBase64;
 
-        if (global?.Buffer && Buffer.isBuffer(encodedData)) {
+        if (isBufferAvailable() && Buffer.isBuffer(encodedData)) {
             encodedDataBase64 = encodedData
                 .toString('base64')
                 .replace(/\+/g, '-')
                 .replace(/\//g, '_')
                 .replace(/=/g, '');
-        } else if (global?.Buffer && typeof Buffer?.from !== 'undefined') {
+        } else if (isBufferAvailable() && typeof Buffer?.from !== 'undefined') {
             encodedDataBase64 = Buffer.from(encodedData)
                 .toString('base64')
                 .replace(/\+/g, '-')
@@ -69,7 +72,7 @@ export class Decoder {
 
         const dataString = encodedTransformation.slice(3); // remove signature
 
-        if (!Buffer) {
+        if (!isBufferAvailable()) {
             throw new InternalError('Buffer class is not available in the current environment');
         }
 

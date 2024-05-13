@@ -36,7 +36,31 @@ const image = new AcceleratorImage({
     .imageQuality('auto')
     .resize(10, 10)
     .rotate(1)
-    .grayscale()
+    .grayscale();
+
+const url = image.getUrl();
+```
+
+### Using Accelerator Images variant and images from an external domain
+
+If you don't want to store images in your S3 bucket, or your original images are provided by your CRM as a URL to some external domain, 
+you can still use Accelerator Images variant to serve optimized images.
+
+The variant configuration is going to be the same as in the previous example. The only difference is that you need to provide the original image URL
+in `AcceleratorImage` constructor, instead of a S3 URI.
+
+```ts
+import { AcceleratorImage } from '@ringpublishing/accelerator-images';
+
+const image = new AcceleratorImage({
+    originalImageUrl: 'https://example.com/images/d5b8348d9bbfce94534d66db1f330f44.jpg',
+    transformationKey: 'abc',
+    transformationHost: 'images.example.com'
+})
+    .imageQuality('auto')
+    .resize(10, 10)
+    .rotate(1)
+    .grayscale();
 
 const url = image.getUrl();
 ```

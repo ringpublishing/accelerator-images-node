@@ -1,6 +1,6 @@
 {
     "name": "@ringpublishing/accelerator-images",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Client library for generating Ring Accelerator image transformation URLs",
     "license": "MIT",
     "repository": "ringpublishing/accelerator-images-node",
