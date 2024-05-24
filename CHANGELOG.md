@@ -1,6 +1,10 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.2] - 2024-05-24
+### Fixed
+- [@mwoloszyn]: Fixed on Safari < 14, by downgrading `msgpackr` from 1.10 which used unsupported BigInt syntax.
+
 ## [1.0.2] - 2024-05-10
 ### Added
 - [@pniewiejski]: Quick start section of README contains an example of external image transformation.
