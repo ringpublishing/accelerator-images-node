@@ -1,6 +1,6 @@
 {
     "name": "@ringpublishing/accelerator-images",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Client library for generating Ring Accelerator image transformation URLs",
     "license": "MIT",
     "repository": "ringpublishing/accelerator-images-node",
@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "crypto-js": "^4.0.0",
-        "msgpackr": "~1.10.0"
+        "msgpackr": "<1.10.0"
     },
     "devDependencies": {
         "@ringieraxelspringer/eslint-config": "^23.0.0",

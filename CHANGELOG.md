@@ -1,6 +1,10 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.3] - 2024-05-24
+### Fixed
+- [@mwoloszyn]: Fixed on Safari < 14, by downgrading `msgpackr` from 1.10 which used unsupported BigInt syntax.
+
 ## [1.0.2] - 2024-05-10
 ### Added
 - [@pniewiejski]: Quick start section of README contains an example of external image transformation.
@@ -38,6 +42,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 ### Added
 - [@pniewiejski]: Initial version.
 
+[1.0.3]: https://github.com/ringpublishing/accelerator-images-node/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/ringpublishing/accelerator-images-node/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/ringpublishing/accelerator-images-node/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/ringpublishing/accelerator-images-node/compare/0.1.4...1.0.0
