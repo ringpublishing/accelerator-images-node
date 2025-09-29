@@ -169,6 +169,20 @@ describe('AcceleratorImage', () => {
             // Then
             expect(url.startsWith('http://')).toBeTruthy();
         });
+
+        it('Should raise exception if any other transform is defined with metadata.', () => {
+            // Given
+            const image = new AcceleratorImage({
+                originalImageUrl: ORIGINAL_IMAGE,
+                transformationKey: TRANSFORM_KEY,
+                transformationHost: TRANSFORMATIONS_HOST
+            });
+            // When
+            const withoutProtocol = image.rotate(1);
+            withoutProtocol.metadata('exif');
+            // Then
+            expect(() => withoutProtocol.getUrl()).toThrow('Cannot use metadata transformation with other transformations. Use it as the only transformation.');
+        });
     });
 
     describe('relative', () => {

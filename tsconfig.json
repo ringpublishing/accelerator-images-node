@@ -1,3 +1,6 @@
 {
-    "extends": "@ringieraxelspringer/tsconfig"
+    "extends": "@ringieraxelspringer/tsconfig",
+    "compilerOptions": {
+        "skipLibCheck": true
+    }
 }

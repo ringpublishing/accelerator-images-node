@@ -9,7 +9,7 @@ export interface AcceleratorImageParams {
     /**
      * URL of the image that is going to be transformed.
      *
-     * @rationale originalImageUrl can be either a URL pointing to the original image hosted on the internet (e.g. https://example.com/path/to/image.jpg
+     * @rationale originalImageUrl can be either a URL pointing to the original image hosted on the internet (e.g. https://example.com/path/to/image.jpg)
      * or a S3 URI pointing to an object stored in an AWS S3 bucket (e.g. s3://example-bucket/path/to/image.jpg).
      */
     originalImageUrl?: string | null;
@@ -56,8 +56,10 @@ export class AcceleratorImage extends ImageTransformBuilder {
     private queryParameters: Record<string, string> = {};
 
     /**
-     * @param originalImageUrl - URL of the originalImageUrl image
-     * @param key - Transformation transformationKey
+     * @param params
+     * @param params.originalImageUrl - URL of the original image
+     * @param params.transformationKey - Transformation key
+     * @param params.transformationHost - Transformation host
      */
     constructor({ originalImageUrl, transformationKey, transformationHost }: AcceleratorImageParams) {
         super();
@@ -164,7 +166,7 @@ export class AcceleratorImage extends ImageTransformBuilder {
             throw new UrlError(`Failed to parse original URL of: ${urlToParse}`);
         }
 
-        if (parseAsTransformation === false) {
+        if (!parseAsTransformation) {
             this.parseOriginal(url);
 
             return;
@@ -270,6 +272,10 @@ export class AcceleratorImage extends ImageTransformBuilder {
 
         if (!this.hasTransforms) {
             return this.originalImageUrl;
+        }
+
+        if (this.getMetadata() && this.getTransforms().length > 1) {
+            throw new InvalidParameter('Cannot use metadata transformation with other transformations. Use it as the only transformation.');
         }
 
         return this.getTransformationUrl();

@@ -1,6 +1,5 @@
-/*.iml
 /.idea
 /.vscode
 /coverage
-/lib
+/dist
 /node_modules

@@ -36,6 +36,7 @@ Builds image transformation metadata object.
 - [getImageFormat](ImageTransformBuilder.md#getimageformat)
 - [getImageQuality](ImageTransformBuilder.md#getimagequality)
 - [getKeepAspectRatio](ImageTransformBuilder.md#getkeepaspectratio)
+- [getMetadata](ImageTransformBuilder.md#getmetadata)
 - [getOverlay](ImageTransformBuilder.md#getoverlay)
 - [getParameter](ImageTransformBuilder.md#getparameter)
 - [getParameters](ImageTransformBuilder.md#getparameters)
@@ -51,6 +52,7 @@ Builds image transformation metadata object.
 - [imageFormat](ImageTransformBuilder.md#imageformat)
 - [imageQuality](ImageTransformBuilder.md#imagequality)
 - [keepAspectRatio](ImageTransformBuilder.md#keepaspectratio)
+- [metadata](ImageTransformBuilder.md#metadata)
 - [overlay](ImageTransformBuilder.md#overlay)
 - [pushTransform](ImageTransformBuilder.md#pushtransform)
 - [resize](ImageTransformBuilder.md#resize)
@@ -72,7 +74,7 @@ Builds image transformation metadata object.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:89
+[src/ImageTransformBuilder.ts:96](src/ImageTransformBuilder.ts:96)
 
 ## Properties
 
@@ -82,7 +84,7 @@ src/ImageTransformBuilder.ts:89
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:87
+[src/ImageTransformBuilder.ts:94](src/ImageTransformBuilder.ts:94)
 
 ___
 
@@ -92,7 +94,7 @@ ___
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:85
+[src/ImageTransformBuilder.ts:92](src/ImageTransformBuilder.ts:92)
 
 ## Methods
 
@@ -120,7 +122,7 @@ Set animation
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:159
+[src/ImageTransformBuilder.ts:166](src/ImageTransformBuilder.ts:166)
 
 ___
 
@@ -148,7 +150,7 @@ Set auto-orientation
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:180
+[src/ImageTransformBuilder.ts:187](src/ImageTransformBuilder.ts:187)
 
 ___
 
@@ -176,7 +178,7 @@ Apply blur effect to the image
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:226
+[src/ImageTransformBuilder.ts:254](src/ImageTransformBuilder.ts:254)
 
 ___
 
@@ -207,7 +209,7 @@ Crop image to a given size
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:273
+[src/ImageTransformBuilder.ts:301](src/ImageTransformBuilder.ts:301)
 
 ___
 
@@ -223,7 +225,7 @@ Get animation
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:168
+[src/ImageTransformBuilder.ts:175](src/ImageTransformBuilder.ts:175)
 
 ___
 
@@ -239,7 +241,7 @@ Get auto-orientation
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:189
+[src/ImageTransformBuilder.ts:196](src/ImageTransformBuilder.ts:196)
 
 ___
 
@@ -255,7 +257,7 @@ Get blur transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:235
+[src/ImageTransformBuilder.ts:263](src/ImageTransformBuilder.ts:263)
 
 ___
 
@@ -271,7 +273,7 @@ Get crop transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:282
+[src/ImageTransformBuilder.ts:310](src/ImageTransformBuilder.ts:310)
 
 ___
 
@@ -287,7 +289,7 @@ Get grayscale transformation arguments in decoded form. Returns undefined if the
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:300
+[src/ImageTransformBuilder.ts:328](src/ImageTransformBuilder.ts:328)
 
 ___
 
@@ -303,7 +305,7 @@ Get hash transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:389
+[src/ImageTransformBuilder.ts:417](src/ImageTransformBuilder.ts:417)
 
 ___
 
@@ -319,7 +321,7 @@ Get image format
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:126
+[src/ImageTransformBuilder.ts:133](src/ImageTransformBuilder.ts:133)
 
 ___
 
@@ -335,7 +337,7 @@ Get image quality
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:147
+[src/ImageTransformBuilder.ts:154](src/ImageTransformBuilder.ts:154)
 
 ___
 
@@ -351,7 +353,23 @@ Get keepAspectRatio transformation arguments in decoded form. Returns undefined 
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:441
+[src/ImageTransformBuilder.ts:469](src/ImageTransformBuilder.ts:469)
+
+___
+
+### getMetadata
+
+▸ **getMetadata**(): `undefined` \| `DecodedParameter`[]
+
+Get metadata transformation arguments in decoded form. Returns undefined if the transformation is not set.
+
+#### Returns
+
+`undefined` \| `DecodedParameter`[]
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:217](src/ImageTransformBuilder.ts:217)
 
 ___
 
@@ -367,7 +385,7 @@ Get overlay transformation arguments in decoded form. Returns undefined if the t
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:369
+[src/ImageTransformBuilder.ts:397](src/ImageTransformBuilder.ts:397)
 
 ___
 
@@ -387,7 +405,7 @@ ___
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:450
+[src/ImageTransformBuilder.ts:478](src/ImageTransformBuilder.ts:478)
 
 ___
 
@@ -403,7 +421,7 @@ Returns a deep copy of encoded parameters object.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:104
+[src/ImageTransformBuilder.ts:111](src/ImageTransformBuilder.ts:111)
 
 ___
 
@@ -419,7 +437,7 @@ Get resize transformation arguments in decoded form. Returns undefined if the tr
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:258
+[src/ImageTransformBuilder.ts:286](src/ImageTransformBuilder.ts:286)
 
 ___
 
@@ -435,7 +453,7 @@ Get resizeCropAuto transformation arguments in decoded form. Returns undefined i
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:323
+[src/ImageTransformBuilder.ts:351](src/ImageTransformBuilder.ts:351)
 
 ___
 
@@ -451,7 +469,7 @@ Get rotate transformation arguments in decoded form. Returns undefined if the tr
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:214
+[src/ImageTransformBuilder.ts:242](src/ImageTransformBuilder.ts:242)
 
 ___
 
@@ -467,7 +485,7 @@ Get setBackground transformation arguments in decoded form. Returns undefined if
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:346
+[src/ImageTransformBuilder.ts:374](src/ImageTransformBuilder.ts:374)
 
 ___
 
@@ -483,7 +501,7 @@ Get setName transformation arguments in decoded form. Returns undefined if the t
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:410
+[src/ImageTransformBuilder.ts:438](src/ImageTransformBuilder.ts:438)
 
 ___
 
@@ -503,7 +521,7 @@ ___
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:471
+[src/ImageTransformBuilder.ts:499](src/ImageTransformBuilder.ts:499)
 
 ___
 
@@ -519,7 +537,7 @@ Returns a deep copy of encoded transforms array.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:97
+[src/ImageTransformBuilder.ts:104](src/ImageTransformBuilder.ts:104)
 
 ___
 
@@ -539,7 +557,7 @@ Convert Image to grayscale
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:291
+[src/ImageTransformBuilder.ts:319](src/ImageTransformBuilder.ts:319)
 
 ___
 
@@ -565,7 +583,7 @@ Change path in original image URL to a md5 or sha1 hash
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:380
+[src/ImageTransformBuilder.ts:408](src/ImageTransformBuilder.ts:408)
 
 ___
 
@@ -599,7 +617,7 @@ Sets the format of the transformed image.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:117
+[src/ImageTransformBuilder.ts:124](src/ImageTransformBuilder.ts:124)
 
 ___
 
@@ -627,7 +645,7 @@ Set the quality of the transformed image using predefined quality levels.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:138
+[src/ImageTransformBuilder.ts:145](src/ImageTransformBuilder.ts:145)
 
 ___
 
@@ -661,7 +679,35 @@ Extends the picture to match given aspect ratio by adding blurred image of itsel
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:429
+[src/ImageTransformBuilder.ts:457](src/ImageTransformBuilder.ts:457)
+
+___
+
+### metadata
+
+▸ **metadata**(`mode?`): `this`
+
+Get metadata of the image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `mode?` | [`MetadataType`](../README.md#metadatatype) | Type of metadata to get. |
+
+#### Returns
+
+`this`
+
+**`Throws`**
+
+**`See`**
+
+[https://developer.ringpublishing.com/topics/images/transformations.html#metadata)](https://developer.ringpublishing.com/topics/images/transformations.html#metadata))
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:208](src/ImageTransformBuilder.ts:208)
 
 ___
 
@@ -690,7 +736,7 @@ Combine image with another one
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:360
+[src/ImageTransformBuilder.ts:388](src/ImageTransformBuilder.ts:388)
 
 ___
 
@@ -711,7 +757,7 @@ ___
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:458
+[src/ImageTransformBuilder.ts:486](src/ImageTransformBuilder.ts:486)
 
 ___
 
@@ -740,7 +786,7 @@ Resize image with preserving aspect ratio
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:249
+[src/ImageTransformBuilder.ts:277](src/ImageTransformBuilder.ts:277)
 
 ___
 
@@ -767,7 +813,7 @@ Crop image automatically to given width and height
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:314
+[src/ImageTransformBuilder.ts:342](src/ImageTransformBuilder.ts:342)
 
 ___
 
@@ -801,7 +847,7 @@ The angle parameter specifies the number of 90 degree clockwise rotations to per
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:205
+[src/ImageTransformBuilder.ts:233](src/ImageTransformBuilder.ts:233)
 
 ___
 
@@ -830,7 +876,7 @@ Add background to image with alpha channel
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:337
+[src/ImageTransformBuilder.ts:365](src/ImageTransformBuilder.ts:365)
 
 ___
 
@@ -857,7 +903,7 @@ Add file name to path
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:401
+[src/ImageTransformBuilder.ts:429](src/ImageTransformBuilder.ts:429)
 
 ___
 
@@ -878,4 +924,4 @@ ___
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:445
+[src/ImageTransformBuilder.ts:473](src/ImageTransformBuilder.ts:473)

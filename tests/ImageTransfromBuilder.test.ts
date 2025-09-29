@@ -252,6 +252,18 @@ describe('ImageTransformsBuilder', () => {
             });
         });
 
+        describe('metadata', () => {
+            it('should set metadata transformation', () => {
+                // Given
+                const builder = new ImageTransformBuilder();
+                // When
+                builder.metadata('exif');
+                // Then
+                expect(builder.getTransforms()).toEqual([[11, 1]]);
+                expect(builder.getMetadata()).toEqual(['exif']);
+            });
+        });
+
         describe('setName', () => {
             it('should set name transformation', () => {
                 // Given

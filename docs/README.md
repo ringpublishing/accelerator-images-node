@@ -26,6 +26,7 @@
 - [ImageFormat](README.md#imageformat)
 - [ImageQuality](README.md#imagequality)
 - [LegacyImageParams](README.md#legacyimageparams)
+- [MetadataType](README.md#metadatatype)
 - [OverlayMode](README.md#overlaymode)
 - [OverlayPosition](README.md#overlayposition)
 - [Rotation](README.md#rotation)
@@ -38,7 +39,7 @@
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:15
+[src/ImageTransformBuilder.ts:15](src/ImageTransformBuilder.ts:15)
 
 ___
 
@@ -48,7 +49,7 @@ ___
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:14
+[src/ImageTransformBuilder.ts:14](src/ImageTransformBuilder.ts:14)
 
 ___
 
@@ -64,7 +65,7 @@ Available hash types for the hash transformation.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:59
+[src/ImageTransformBuilder.ts:59](src/ImageTransformBuilder.ts:59)
 
 ___
 
@@ -80,7 +81,7 @@ Available image formats.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:66
+[src/ImageTransformBuilder.ts:66](src/ImageTransformBuilder.ts:66)
 
 ___
 
@@ -96,7 +97,7 @@ Available quality presets.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:72
+[src/ImageTransformBuilder.ts:79](src/ImageTransformBuilder.ts:79)
 
 ___
 
@@ -106,7 +107,23 @@ ___
 
 #### Defined in
 
-src/LegacyImage.ts:5
+[src/LegacyImage.ts:5](src/LegacyImage.ts:5)
+
+___
+
+### MetadataType
+
+Ƭ **MetadataType**: ``"basic"`` \| ``"exif"`` \| ``"iptc"`` \| ``"all"``
+
+Available metadata types for the metadata transformation.
+
+**`See`**
+
+[https://developer.ringpublishing.com/topics/images/transformations.html#metadata)](https://developer.ringpublishing.com/topics/images/transformations.html#metadata))
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:73](src/ImageTransformBuilder.ts:73)
 
 ___
 
@@ -122,7 +139,7 @@ Available values for the mode arg of the Overlay transformation.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:30
+[src/ImageTransformBuilder.ts:30](src/ImageTransformBuilder.ts:30)
 
 ___
 
@@ -138,7 +155,7 @@ Available values for the position arg of the Overlay transformation.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:22
+[src/ImageTransformBuilder.ts:22](src/ImageTransformBuilder.ts:22)
 
 ___
 
@@ -154,4 +171,4 @@ Available values for the rotation transformation.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:79
+[src/ImageTransformBuilder.ts:86](src/ImageTransformBuilder.ts:86)

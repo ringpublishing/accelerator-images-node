@@ -345,6 +345,23 @@ export const schema: AvailableTransformsSchema = {
                     maxValue: 100
                 }
             ]
+        },
+        11: {
+            name: 'metadata',
+            description: 'get image metadata',
+            args: [
+                {
+                    name: 'mode',
+                    type: 'enum',
+                    values: {
+                        0: 'basic',
+                        1: 'exif',
+                        2: 'iptc',
+                        3: 'all'
+                    },
+                    default: 0
+                }
+            ]
         }
     },
     params: {
@@ -412,7 +429,8 @@ export enum TransformCode {
     overlay = 7,
     hash = 8,
     setName = 9,
-    keepAspectRatio = 10
+    keepAspectRatio = 10,
+    metadata = 11
 }
 
 export function getParameterSchema(parameter: ParameterCode): ParameterSchema {

@@ -20,12 +20,12 @@ URL of the image that is going to be transformed.
 
 **`Rationale`**
 
-originalImageUrl can be either a URL pointing to the original image hosted on the internet (e.g. https://example.com/path/to/image.jpg
+originalImageUrl can be either a URL pointing to the original image hosted on the internet (e.g. https://example.com/path/to/image.jpg)
 or a S3 URI pointing to an object stored in an AWS S3 bucket (e.g. s3://example-bucket/path/to/image.jpg).
 
 #### Defined in
 
-src/AcceleratorImage.ts:15
+[src/AcceleratorImage.ts:15](src/AcceleratorImage.ts:15)
 
 ___
 
@@ -38,7 +38,7 @@ If you are using Accelerator Images variant, you should set the domain of your v
 
 #### Defined in
 
-src/AcceleratorImage.ts:27
+[src/AcceleratorImage.ts:27](src/AcceleratorImage.ts:27)
 
 ___
 
@@ -51,4 +51,4 @@ copy the transformation key from variant's configuration.
 
 #### Defined in
 
-src/AcceleratorImage.ts:21
+[src/AcceleratorImage.ts:21](src/AcceleratorImage.ts:21)

@@ -66,6 +66,13 @@ export type HashType = 'md5' | 'sha1';
 export type ImageFormat = 'auto' | 'original' | 'jpeg' | 'png' | 'bmp' | 'tiff' | 'webp' | 'avif';
 
 /**
+ * Available metadata types for the metadata transformation.
+ *
+ * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#metadata)}
+ */
+export type MetadataType = 'basic' | 'exif' | 'iptc' | 'all';
+
+/**
  * Available quality presets.
  * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#imagequality)}
  */
@@ -188,6 +195,27 @@ export class ImageTransformBuilder {
      */
     public getAutoOrient(): EncodedParameter | undefined {
         return this.getParameter(ParameterCode.autoOrient);
+    }
+
+    /**
+     * Get metadata of the image
+     *
+     * @param mode - Type of metadata to get.
+     *
+     * @throws {InvalidParameter}
+     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#metadata)}
+     */
+    public metadata(mode?: MetadataType): this {
+        this.pushTransform(TransformCode.metadata, [mode]);
+
+        return this;
+    }
+
+    /**
+     * Get metadata transformation arguments in decoded form. Returns undefined if the transformation is not set.
+     */
+    public getMetadata(): DecodedParameter[] | undefined {
+        return this.getTransformArguments(TransformCode.metadata);
     }
 
     /**

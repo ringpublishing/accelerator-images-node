@@ -54,6 +54,7 @@ AcceleratorImage
 - [getImageFormat](AcceleratorImage.md#getimageformat)
 - [getImageQuality](AcceleratorImage.md#getimagequality)
 - [getKeepAspectRatio](AcceleratorImage.md#getkeepaspectratio)
+- [getMetadata](AcceleratorImage.md#getmetadata)
 - [getOverlay](AcceleratorImage.md#getoverlay)
 - [getParameters](AcceleratorImage.md#getparameters)
 - [getParent](AcceleratorImage.md#getparent)
@@ -72,6 +73,7 @@ AcceleratorImage
 - [imageQuality](AcceleratorImage.md#imagequality)
 - [initialize](AcceleratorImage.md#initialize)
 - [keepAspectRatio](AcceleratorImage.md#keepaspectratio)
+- [metadata](AcceleratorImage.md#metadata)
 - [overlay](AcceleratorImage.md#overlay)
 - [parse](AcceleratorImage.md#parse)
 - [parseOriginal](AcceleratorImage.md#parseoriginal)
@@ -92,13 +94,13 @@ AcceleratorImage
 
 ### constructor
 
-• **new AcceleratorImage**(`«destructured»`): [`AcceleratorImage`](AcceleratorImage.md)
+• **new AcceleratorImage**(`params`): [`AcceleratorImage`](AcceleratorImage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `«destructured»` | [`AcceleratorImageParams`](../interfaces/AcceleratorImageParams.md) |
+| `params` | [`AcceleratorImageParams`](../interfaces/AcceleratorImageParams.md) |
 
 #### Returns
 
@@ -110,7 +112,7 @@ AcceleratorImage
 
 #### Defined in
 
-src/AcceleratorImage.ts:62
+[src/AcceleratorImage.ts:64](src/AcceleratorImage.ts:64)
 
 ## Properties
 
@@ -120,7 +122,7 @@ src/AcceleratorImage.ts:62
 
 #### Defined in
 
-src/AcceleratorImage.ts:54
+[src/AcceleratorImage.ts:54](src/AcceleratorImage.ts:54)
 
 ___
 
@@ -130,7 +132,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:40
+[src/AcceleratorImage.ts:40](src/AcceleratorImage.ts:40)
 
 ___
 
@@ -140,7 +142,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:52
+[src/AcceleratorImage.ts:52](src/AcceleratorImage.ts:52)
 
 ___
 
@@ -150,7 +152,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:50
+[src/AcceleratorImage.ts:50](src/AcceleratorImage.ts:50)
 
 ___
 
@@ -164,7 +166,7 @@ ___
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:87
+[src/ImageTransformBuilder.ts:94](src/ImageTransformBuilder.ts:94)
 
 ___
 
@@ -174,7 +176,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:46
+[src/AcceleratorImage.ts:46](src/AcceleratorImage.ts:46)
 
 ___
 
@@ -184,7 +186,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:56
+[src/AcceleratorImage.ts:56](src/AcceleratorImage.ts:56)
 
 ___
 
@@ -194,7 +196,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:42
+[src/AcceleratorImage.ts:42](src/AcceleratorImage.ts:42)
 
 ___
 
@@ -204,7 +206,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:48
+[src/AcceleratorImage.ts:48](src/AcceleratorImage.ts:48)
 
 ___
 
@@ -214,7 +216,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:44
+[src/AcceleratorImage.ts:44](src/AcceleratorImage.ts:44)
 
 ___
 
@@ -228,7 +230,7 @@ ___
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:85
+[src/ImageTransformBuilder.ts:92](src/ImageTransformBuilder.ts:92)
 
 ___
 
@@ -240,7 +242,7 @@ Current version of the Accelerator Images transformation URL
 
 #### Defined in
 
-src/AcceleratorImage.ts:38
+[src/AcceleratorImage.ts:38](src/AcceleratorImage.ts:38)
 
 ## Accessors
 
@@ -254,7 +256,7 @@ src/AcceleratorImage.ts:38
 
 #### Defined in
 
-src/AcceleratorImage.ts:98
+[src/AcceleratorImage.ts:100](src/AcceleratorImage.ts:100)
 
 ## Methods
 
@@ -286,7 +288,7 @@ Set animation
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:159
+[src/ImageTransformBuilder.ts:166](src/ImageTransformBuilder.ts:166)
 
 ___
 
@@ -318,7 +320,7 @@ Set auto-orientation
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:180
+[src/ImageTransformBuilder.ts:187](src/ImageTransformBuilder.ts:187)
 
 ___
 
@@ -350,7 +352,7 @@ Apply blur effect to the image
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:226
+[src/ImageTransformBuilder.ts:254](src/ImageTransformBuilder.ts:254)
 
 ___
 
@@ -385,7 +387,7 @@ Crop image to a given size
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:273
+[src/ImageTransformBuilder.ts:301](src/ImageTransformBuilder.ts:301)
 
 ___
 
@@ -411,7 +413,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:151
+[src/AcceleratorImage.ts:153](src/AcceleratorImage.ts:153)
 
 ___
 
@@ -425,7 +427,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:216
+[src/AcceleratorImage.ts:218](src/AcceleratorImage.ts:218)
 
 ___
 
@@ -445,7 +447,7 @@ Get animation
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:168
+[src/ImageTransformBuilder.ts:175](src/ImageTransformBuilder.ts:175)
 
 ___
 
@@ -465,7 +467,7 @@ Get auto-orientation
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:189
+[src/ImageTransformBuilder.ts:196](src/ImageTransformBuilder.ts:196)
 
 ___
 
@@ -485,7 +487,7 @@ Get blur transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:235
+[src/ImageTransformBuilder.ts:263](src/ImageTransformBuilder.ts:263)
 
 ___
 
@@ -505,7 +507,7 @@ Get crop transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:282
+[src/ImageTransformBuilder.ts:310](src/ImageTransformBuilder.ts:310)
 
 ___
 
@@ -525,7 +527,7 @@ Get grayscale transformation arguments in decoded form. Returns undefined if the
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:300
+[src/ImageTransformBuilder.ts:328](src/ImageTransformBuilder.ts:328)
 
 ___
 
@@ -545,7 +547,7 @@ Get hash transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:389
+[src/ImageTransformBuilder.ts:417](src/ImageTransformBuilder.ts:417)
 
 ___
 
@@ -565,7 +567,7 @@ Get image format
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:126
+[src/ImageTransformBuilder.ts:133](src/ImageTransformBuilder.ts:133)
 
 ___
 
@@ -585,7 +587,7 @@ Get image quality
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:147
+[src/ImageTransformBuilder.ts:154](src/ImageTransformBuilder.ts:154)
 
 ___
 
@@ -605,7 +607,27 @@ Get keepAspectRatio transformation arguments in decoded form. Returns undefined 
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:441
+[src/ImageTransformBuilder.ts:469](src/ImageTransformBuilder.ts:469)
+
+___
+
+### getMetadata
+
+▸ **getMetadata**(): `undefined` \| `DecodedParameter`[]
+
+Get metadata transformation arguments in decoded form. Returns undefined if the transformation is not set.
+
+#### Returns
+
+`undefined` \| `DecodedParameter`[]
+
+#### Inherited from
+
+[ImageTransformBuilder](ImageTransformBuilder.md).[getMetadata](ImageTransformBuilder.md#getmetadata)
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:217](src/ImageTransformBuilder.ts:217)
 
 ___
 
@@ -625,7 +647,7 @@ Get overlay transformation arguments in decoded form. Returns undefined if the t
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:369
+[src/ImageTransformBuilder.ts:397](src/ImageTransformBuilder.ts:397)
 
 ___
 
@@ -645,7 +667,7 @@ Returns a deep copy of encoded parameters object.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:104
+[src/ImageTransformBuilder.ts:111](src/ImageTransformBuilder.ts:111)
 
 ___
 
@@ -661,7 +683,7 @@ Returns a new instance of [AcceleratorImage](AcceleratorImage.md) with originalI
 
 #### Defined in
 
-src/AcceleratorImage.ts:238
+[src/AcceleratorImage.ts:240](src/AcceleratorImage.ts:240)
 
 ___
 
@@ -681,7 +703,7 @@ Get resize transformation arguments in decoded form. Returns undefined if the tr
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:258
+[src/ImageTransformBuilder.ts:286](src/ImageTransformBuilder.ts:286)
 
 ___
 
@@ -701,7 +723,7 @@ Get resizeCropAuto transformation arguments in decoded form. Returns undefined i
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:323
+[src/ImageTransformBuilder.ts:351](src/ImageTransformBuilder.ts:351)
 
 ___
 
@@ -721,7 +743,7 @@ Get rotate transformation arguments in decoded form. Returns undefined if the tr
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:214
+[src/ImageTransformBuilder.ts:242](src/ImageTransformBuilder.ts:242)
 
 ___
 
@@ -741,7 +763,7 @@ Get setBackground transformation arguments in decoded form. Returns undefined if
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:346
+[src/ImageTransformBuilder.ts:374](src/ImageTransformBuilder.ts:374)
 
 ___
 
@@ -761,7 +783,7 @@ Get setName transformation arguments in decoded form. Returns undefined if the t
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:410
+[src/ImageTransformBuilder.ts:438](src/ImageTransformBuilder.ts:438)
 
 ___
 
@@ -777,7 +799,7 @@ Returns URL's path of the transformed image
 
 #### Defined in
 
-src/AcceleratorImage.ts:249
+[src/AcceleratorImage.ts:251](src/AcceleratorImage.ts:251)
 
 ___
 
@@ -791,7 +813,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:289
+[src/AcceleratorImage.ts:295](src/AcceleratorImage.ts:295)
 
 ___
 
@@ -811,7 +833,7 @@ Returns a deep copy of encoded transforms array.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:97
+[src/ImageTransformBuilder.ts:104](src/ImageTransformBuilder.ts:104)
 
 ___
 
@@ -836,7 +858,7 @@ when object is not initialized.
 
 #### Defined in
 
-src/AcceleratorImage.ts:266
+[src/AcceleratorImage.ts:268](src/AcceleratorImage.ts:268)
 
 ___
 
@@ -860,7 +882,7 @@ Convert Image to grayscale
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:291
+[src/ImageTransformBuilder.ts:319](src/ImageTransformBuilder.ts:319)
 
 ___
 
@@ -890,7 +912,7 @@ Change path in original image URL to a md5 or sha1 hash
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:380
+[src/ImageTransformBuilder.ts:408](src/ImageTransformBuilder.ts:408)
 
 ___
 
@@ -928,7 +950,7 @@ Sets the format of the transformed image.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:117
+[src/ImageTransformBuilder.ts:124](src/ImageTransformBuilder.ts:124)
 
 ___
 
@@ -960,7 +982,7 @@ Set the quality of the transformed image using predefined quality levels.
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:138
+[src/ImageTransformBuilder.ts:145](src/ImageTransformBuilder.ts:145)
 
 ___
 
@@ -980,7 +1002,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:179
+[src/AcceleratorImage.ts:181](src/AcceleratorImage.ts:181)
 
 ___
 
@@ -1018,7 +1040,39 @@ Extends the picture to match given aspect ratio by adding blurred image of itsel
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:429
+[src/ImageTransformBuilder.ts:457](src/ImageTransformBuilder.ts:457)
+
+___
+
+### metadata
+
+▸ **metadata**(`mode?`): `this`
+
+Get metadata of the image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `mode?` | [`MetadataType`](../README.md#metadatatype) | Type of metadata to get. |
+
+#### Returns
+
+`this`
+
+**`Throws`**
+
+**`See`**
+
+[https://developer.ringpublishing.com/topics/images/transformations.html#metadata)](https://developer.ringpublishing.com/topics/images/transformations.html#metadata))
+
+#### Inherited from
+
+[ImageTransformBuilder](ImageTransformBuilder.md).[metadata](ImageTransformBuilder.md#metadata)
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:208](src/ImageTransformBuilder.ts:208)
 
 ___
 
@@ -1051,7 +1105,7 @@ Combine image with another one
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:360
+[src/ImageTransformBuilder.ts:388](src/ImageTransformBuilder.ts:388)
 
 ___
 
@@ -1072,7 +1126,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:158
+[src/AcceleratorImage.ts:160](src/AcceleratorImage.ts:160)
 
 ___
 
@@ -1092,7 +1146,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:102
+[src/AcceleratorImage.ts:104](src/AcceleratorImage.ts:104)
 
 ___
 
@@ -1112,7 +1166,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:121
+[src/AcceleratorImage.ts:123](src/AcceleratorImage.ts:123)
 
 ___
 
@@ -1134,7 +1188,7 @@ Set path as relative
 
 #### Defined in
 
-src/AcceleratorImage.ts:194
+[src/AcceleratorImage.ts:196](src/AcceleratorImage.ts:196)
 
 ___
 
@@ -1167,7 +1221,7 @@ Resize image with preserving aspect ratio
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:249
+[src/ImageTransformBuilder.ts:277](src/ImageTransformBuilder.ts:277)
 
 ___
 
@@ -1198,7 +1252,7 @@ Crop image automatically to given width and height
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:314
+[src/ImageTransformBuilder.ts:342](src/ImageTransformBuilder.ts:342)
 
 ___
 
@@ -1236,7 +1290,7 @@ The angle parameter specifies the number of 90 degree clockwise rotations to per
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:205
+[src/ImageTransformBuilder.ts:233](src/ImageTransformBuilder.ts:233)
 
 ___
 
@@ -1258,7 +1312,7 @@ Change filename in browser
 
 #### Defined in
 
-src/AcceleratorImage.ts:231
+[src/AcceleratorImage.ts:233](src/AcceleratorImage.ts:233)
 
 ___
 
@@ -1291,7 +1345,7 @@ Add background to image with alpha channel
 
 #### Defined in
 
-src/ImageTransformBuilder.ts:337
+[src/ImageTransformBuilder.ts:365](src/ImageTransformBuilder.ts:365)
 
 ___
 
@@ -1317,7 +1371,7 @@ Add file name to path
 
 #### Defined in
 
-src/AcceleratorImage.ts:315
+[src/AcceleratorImage.ts:321](src/AcceleratorImage.ts:321)
 
 ___
 
@@ -1338,7 +1392,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:222
+[src/AcceleratorImage.ts:224](src/AcceleratorImage.ts:224)
 
 ___
 
@@ -1356,7 +1410,7 @@ ___
 
 #### Defined in
 
-src/AcceleratorImage.ts:281
+[src/AcceleratorImage.ts:287](src/AcceleratorImage.ts:287)
 
 ___
 
@@ -1380,7 +1434,7 @@ img.withoutProtocol().toString(); // returns '//example.com/img.js'
 
 #### Defined in
 
-src/AcceleratorImage.ts:210
+[src/AcceleratorImage.ts:212](src/AcceleratorImage.ts:212)
 
 ___
 
@@ -1403,4 +1457,4 @@ Parse URL to a transformed image and initialize AcceleratorImage object with tra
 
 #### Defined in
 
-src/AcceleratorImage.ts:90
+[src/AcceleratorImage.ts:92](src/AcceleratorImage.ts:92)
