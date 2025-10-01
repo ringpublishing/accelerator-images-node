@@ -1,6 +1,10 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.3.1 - 2025-09-30
+### Removed
+- [@mdulawa]: Removed support for Node v24 as it's not working with `msgpackr@1.9`.
+
 ## 1.3.0 - 2025-09-26
 ### Added
 - [@mdulawa]: Added support for Node v24.
