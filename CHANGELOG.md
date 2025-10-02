@@ -1,6 +1,17 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.0.0 - 2025-10-02
+### Added
+- [@mdulawa]: Added support for Node v24.
+
+### Changed
+- [@mdulawa]: Upgraded `msgpackr` to newest `v1` with support for Node v24.
+
+### Removed
+- [@mdulawa]: Dropped support for Safari ≤13 (minimum supported version is now Safari 14) due to upgrade to `msgpackr` v1.10+ in version 2.0.0.
+- [@mdulawa]: Removed support for Node v18.
+
 ## 1.3.1 - 2025-09-30
 ### Removed
 - [@mdulawa]: Removed support for Node v24 as it's not working with `msgpackr@1.9`.
