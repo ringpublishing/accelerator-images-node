@@ -362,6 +362,24 @@ export const schema: AvailableTransformsSchema = {
                     default: 0
                 }
             ]
+        },
+        12: {
+            name: 'setFocalPoint',
+            description: 'Set focal point of the image.',
+            args: [
+                {
+                    name: 'x',
+                    description: 'X coordinate of focal point.',
+                    type: 'integer',
+                    minValue: 0
+                },
+                {
+                    name: 'y',
+                    description: 'Y coordinate of focal point.',
+                    type: 'integer',
+                    minValue: 0
+                }
+            ]
         }
     },
     params: {
@@ -430,7 +448,8 @@ export enum TransformCode {
     hash = 8,
     setName = 9,
     keepAspectRatio = 10,
-    metadata = 11
+    metadata = 11,
+    setFocalPoint = 12
 }
 
 export function getParameterSchema(parameter: ParameterCode): ParameterSchema {

@@ -1,6 +1,10 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.1.0 - 2025-11-03
+### Added
+- [@rmusial2]: Added `setFocalPoint` transformation to set focal point of the image.
+
 ## 2.0.0 - 2025-10-02
 ### Added
 - [@mdulawa]: Added support for Node v24.

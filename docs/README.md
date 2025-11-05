@@ -61,7 +61,7 @@ Available hash types for the hash transformation.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#hash)](https://developer.ringpublishing.com/topics/images/transformations.html#hash))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#hash)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#hash))
 
 #### Defined in
 
@@ -77,7 +77,7 @@ Available image formats.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#imageformat)](https://developer.ringpublishing.com/topics/images/transformations.html#imageformat))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imageformat)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imageformat))
 
 #### Defined in
 
@@ -93,7 +93,7 @@ Available quality presets.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#imagequality)](https://developer.ringpublishing.com/topics/images/transformations.html#imagequality))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imagequality)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imagequality))
 
 #### Defined in
 
@@ -119,7 +119,7 @@ Available metadata types for the metadata transformation.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#metadata)](https://developer.ringpublishing.com/topics/images/transformations.html#metadata))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata))
 
 #### Defined in
 
@@ -135,7 +135,7 @@ Available values for the mode arg of the Overlay transformation.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#overlay)](https://developer.ringpublishing.com/topics/images/transformations.html#overlay))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay))
 
 #### Defined in
 
@@ -151,7 +151,7 @@ Available values for the position arg of the Overlay transformation.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#overlay](https://developer.ringpublishing.com/topics/images/transformations.html#overlay)
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay)
 
 #### Defined in
 
@@ -167,7 +167,7 @@ Available values for the rotation transformation.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#rotate)](https://developer.ringpublishing.com/topics/images/transformations.html#rotate))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#rotate)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#rotate))
 
 #### Defined in
 

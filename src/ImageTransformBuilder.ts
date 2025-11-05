@@ -17,7 +17,7 @@ export type EncodedParameters = Record<number, EncodedParameter>;
 /**
  * Available values for the position arg of the Overlay transformation.
  *
- * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#overlay}
+ * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay}
  */
 export type OverlayPosition = 'stretch' | 'top-left' | 'top-center' | 'top-right' | 'center-left' | 'center-center'
     | 'center-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
@@ -25,7 +25,7 @@ export type OverlayPosition = 'stretch' | 'top-left' | 'top-center' | 'top-right
 /**
  * Available values for the mode arg of the Overlay transformation.
  *
- * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#overlay)}
+ * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay)}
  */
 export type OverlayMode =
     'over'
@@ -54,34 +54,34 @@ export type OverlayMode =
 /**
  * Available hash types for the hash transformation.
  *
- * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#hash)}
+ * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#hash)}
  */
 export type HashType = 'md5' | 'sha1';
 
 /**
  * Available image formats.
  *
- * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#imageformat)}
+ * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imageformat)}
  */
 export type ImageFormat = 'auto' | 'original' | 'jpeg' | 'png' | 'bmp' | 'tiff' | 'webp' | 'avif';
 
 /**
  * Available metadata types for the metadata transformation.
  *
- * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#metadata)}
+ * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata)}
  */
 export type MetadataType = 'basic' | 'exif' | 'iptc' | 'all';
 
 /**
  * Available quality presets.
- * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#imagequality)}
+ * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imagequality)}
  */
 export type ImageQuality = 'auto' | 'low' | 'medium' | 'high' | 'very-high';
 
 /**
  * Available values for the rotation transformation.
  *
- * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#rotate)}
+ * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#rotate)}
  */
 export type Rotation = 1 | 2 | 3;
 
@@ -119,7 +119,7 @@ export class ImageTransformBuilder {
      *
      * @throws {InvalidParameter} - If format is not supported
      * @rationale - When format "original" is selected, Accelerator will preserve the format of the original image.
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#imageformat)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imageformat)}
      */
     public imageFormat(format?: ImageFormat): this {
         this.setParameter(ParameterCode.imageFormat, format);
@@ -140,7 +140,7 @@ export class ImageTransformBuilder {
      * @param quality - Quality of the transformed image.
      *
      * @throws {InvalidParameter}
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#imagequality)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imagequality)}
      */
     public imageQuality(quality?: ImageQuality): this {
         this.setParameter(ParameterCode.imageQuality, quality);
@@ -161,7 +161,7 @@ export class ImageTransformBuilder {
      * @param animation
      *
      * @throws {InvalidParameter}
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#animation)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#animation)}
      */
     public animation(animation: boolean): this {
         this.setParameter(ParameterCode.animation, animation);
@@ -182,7 +182,7 @@ export class ImageTransformBuilder {
      * @param autoOrient
      *
      * @throws {InvalidParameter}
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#autoorient)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#autoorient)}
      */
     public autoOrient(autoOrient: boolean): this {
         this.setParameter(ParameterCode.autoOrient, autoOrient);
@@ -203,7 +203,7 @@ export class ImageTransformBuilder {
      * @param mode - Type of metadata to get.
      *
      * @throws {InvalidParameter}
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#metadata)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata)}
      */
     public metadata(mode?: MetadataType): this {
         this.pushTransform(TransformCode.metadata, [mode]);
@@ -228,7 +228,7 @@ export class ImageTransformBuilder {
      *     The angle parameter specifies the number of 90 degree clockwise rotations to perform on the image.
      *     For example when the angle is 1, the image will be rotated 90 degrees clockwise.
      *     When the angle is 2, the image will be rotated 180 degrees clockwise. Etc.
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#rotate)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#rotate)}
      */
     public rotate(angle?: Rotation): this {
         this.pushTransform(TransformCode.rotate, [angle]);
@@ -249,7 +249,7 @@ export class ImageTransformBuilder {
      * @param power Blur strength
      *
      * @throws {InvalidParameter}
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#blur)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#blur)}
      */
     public blur(power?: number): this {
         this.pushTransform(TransformCode.blur, [power]);
@@ -272,7 +272,7 @@ export class ImageTransformBuilder {
      * @param scaleUp Enables enlarging image when one of sizes is set to 0
      * @param scaleDown Enables shrinking image when one of sizes is set to 0
      *
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#resize)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#resize}
      */
     public resize(width?: number, height?: number, scaleUp?: boolean, scaleDown?: boolean): this {
         this.pushTransform(TransformCode.resize, [width, height, scaleUp, scaleDown]);
@@ -296,7 +296,7 @@ export class ImageTransformBuilder {
      * @param height Height of the cropped image
      *
      * @throws {InvalidParameter}
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#crop)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#crop)}
      */
     public crop(x?: number, y?: number, width?: number, height?: number): this {
         this.pushTransform(TransformCode.crop, [x, y, width, height]);
@@ -314,7 +314,7 @@ export class ImageTransformBuilder {
     /**
      * Convert Image to grayscale
      *
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#grayscale)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#grayscale)}
      */
     public grayscale(): this {
         this.pushTransform(TransformCode.grayscale, []);
@@ -337,7 +337,7 @@ export class ImageTransformBuilder {
      * @param width Width of the cropped image
      * @param height Height of the cropped image
      *
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#resizecropauto)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#resizecropauto)}
      */
     public resizeCropAuto(width?: number, height?: number): this {
         this.pushTransform(TransformCode.resizeCropAuto, [width, height]);
@@ -360,7 +360,7 @@ export class ImageTransformBuilder {
      * @param blue
      * @param alpha
      *
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#set-background)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#set-background)}
      */
     public setBackground(red?: number, green?: number, blue?: number, alpha?: number): this {
         this.pushTransform(TransformCode.setBackground, [red, green, blue, alpha]);
@@ -383,7 +383,7 @@ export class ImageTransformBuilder {
      * @param reverse Reverse the order of the images.
      * @param mode Overlay mode
      *
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#overlay)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay)}
      */
     public overlay(url?: string, position?: OverlayPosition, reverse?: boolean, mode?: OverlayMode): this {
         this.pushTransform(TransformCode.overlay, [url, position, reverse, mode]);
@@ -403,7 +403,7 @@ export class ImageTransformBuilder {
      *
      * @param type Hash type
      *
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#hash)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#hash)}
      */
     public hash(type?: HashType): this {
         this.pushTransform(TransformCode.hash, [type]);
@@ -424,7 +424,7 @@ export class ImageTransformBuilder {
      * @param name Target file name
      * @param len File name length limit
      *
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#setname)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#setname)}
      */
     public setName(name?: string, len?: number): this {
         this.pushTransform(TransformCode.setName, [name, len]);
@@ -440,6 +440,27 @@ export class ImageTransformBuilder {
     }
 
     /**
+     * * Set the focal point of the image
+     *
+     * @param x Focal point X coordinate
+     * @param y Focal point Y coordinate
+     *
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#set-focal-point)}
+     */
+    public setFocalPoint(x: number, y: number): this {
+        this.pushTransform(TransformCode.setFocalPoint, [x, y]);
+
+        return this;
+    }
+
+    /**
+     * Get setFocalPoint transformation arguments in decoded form. Returns undefined if the transformation is not set.
+     */
+    public getSetFocalPoint(): DecodedParameter[] | undefined {
+        return this.getTransformArguments(TransformCode.setFocalPoint);
+    }
+
+    /**
      * Extends the picture to match given aspect ratio by adding blurred image of itself as background for empty areas
      *
      * @param width Target image width
@@ -452,7 +473,7 @@ export class ImageTransformBuilder {
      * @param toleranceX A percent of width that can be removed to fit aspect ratio.
      * @param toleranceY A percent of height that can be removed to fit aspect ratio.
      *
-     * @see {@link https://developer.ringpublishing.com/topics/images/transformations.html#keep-aspect-ratio)}
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#keep-aspect-ratio)}
      */
     public keepAspectRatio(
         width?: number, height?: number, blurPower?: number,

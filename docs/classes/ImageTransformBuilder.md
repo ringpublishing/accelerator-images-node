@@ -44,6 +44,7 @@ Builds image transformation metadata object.
 - [getResizeCropAuto](ImageTransformBuilder.md#getresizecropauto)
 - [getRotate](ImageTransformBuilder.md#getrotate)
 - [getSetBackground](ImageTransformBuilder.md#getsetbackground)
+- [getSetFocalPoint](ImageTransformBuilder.md#getsetfocalpoint)
 - [getSetName](ImageTransformBuilder.md#getsetname)
 - [getTransformArguments](ImageTransformBuilder.md#gettransformarguments)
 - [getTransforms](ImageTransformBuilder.md#gettransforms)
@@ -59,6 +60,7 @@ Builds image transformation metadata object.
 - [resizeCropAuto](ImageTransformBuilder.md#resizecropauto)
 - [rotate](ImageTransformBuilder.md#rotate)
 - [setBackground](ImageTransformBuilder.md#setbackground)
+- [setFocalPoint](ImageTransformBuilder.md#setfocalpoint)
 - [setName](ImageTransformBuilder.md#setname)
 - [setParameter](ImageTransformBuilder.md#setparameter)
 
@@ -118,7 +120,7 @@ Set animation
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#animation)](https://developer.ringpublishing.com/topics/images/transformations.html#animation))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#animation)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#animation))
 
 #### Defined in
 
@@ -146,7 +148,7 @@ Set auto-orientation
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#autoorient)](https://developer.ringpublishing.com/topics/images/transformations.html#autoorient))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#autoorient)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#autoorient))
 
 #### Defined in
 
@@ -174,7 +176,7 @@ Apply blur effect to the image
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#blur)](https://developer.ringpublishing.com/topics/images/transformations.html#blur))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#blur)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#blur))
 
 #### Defined in
 
@@ -205,11 +207,11 @@ Crop image to a given size
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#crop)](https://developer.ringpublishing.com/topics/images/transformations.html#crop))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#crop)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#crop))
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:301](src/ImageTransformBuilder.ts:301)
+[src/ImageTransformBuilder.ts:302](src/ImageTransformBuilder.ts:302)
 
 ___
 
@@ -273,7 +275,7 @@ Get crop transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:310](src/ImageTransformBuilder.ts:310)
+[src/ImageTransformBuilder.ts:311](src/ImageTransformBuilder.ts:311)
 
 ___
 
@@ -289,7 +291,7 @@ Get grayscale transformation arguments in decoded form. Returns undefined if the
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:328](src/ImageTransformBuilder.ts:328)
+[src/ImageTransformBuilder.ts:329](src/ImageTransformBuilder.ts:329)
 
 ___
 
@@ -305,7 +307,7 @@ Get hash transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:417](src/ImageTransformBuilder.ts:417)
+[src/ImageTransformBuilder.ts:418](src/ImageTransformBuilder.ts:418)
 
 ___
 
@@ -353,7 +355,7 @@ Get keepAspectRatio transformation arguments in decoded form. Returns undefined 
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:469](src/ImageTransformBuilder.ts:469)
+[src/ImageTransformBuilder.ts:492](src/ImageTransformBuilder.ts:492)
 
 ___
 
@@ -385,7 +387,7 @@ Get overlay transformation arguments in decoded form. Returns undefined if the t
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:397](src/ImageTransformBuilder.ts:397)
+[src/ImageTransformBuilder.ts:398](src/ImageTransformBuilder.ts:398)
 
 ___
 
@@ -405,7 +407,7 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:478](src/ImageTransformBuilder.ts:478)
+[src/ImageTransformBuilder.ts:501](src/ImageTransformBuilder.ts:501)
 
 ___
 
@@ -437,7 +439,7 @@ Get resize transformation arguments in decoded form. Returns undefined if the tr
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:286](src/ImageTransformBuilder.ts:286)
+[src/ImageTransformBuilder.ts:287](src/ImageTransformBuilder.ts:287)
 
 ___
 
@@ -453,7 +455,7 @@ Get resizeCropAuto transformation arguments in decoded form. Returns undefined i
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:351](src/ImageTransformBuilder.ts:351)
+[src/ImageTransformBuilder.ts:352](src/ImageTransformBuilder.ts:352)
 
 ___
 
@@ -485,7 +487,23 @@ Get setBackground transformation arguments in decoded form. Returns undefined if
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:374](src/ImageTransformBuilder.ts:374)
+[src/ImageTransformBuilder.ts:375](src/ImageTransformBuilder.ts:375)
+
+___
+
+### getSetFocalPoint
+
+▸ **getSetFocalPoint**(): `undefined` \| `DecodedParameter`[]
+
+Get setFocalPoint transformation arguments in decoded form. Returns undefined if the transformation is not set.
+
+#### Returns
+
+`undefined` \| `DecodedParameter`[]
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:461](src/ImageTransformBuilder.ts:461)
 
 ___
 
@@ -501,7 +519,7 @@ Get setName transformation arguments in decoded form. Returns undefined if the t
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:438](src/ImageTransformBuilder.ts:438)
+[src/ImageTransformBuilder.ts:439](src/ImageTransformBuilder.ts:439)
 
 ___
 
@@ -521,7 +539,7 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:499](src/ImageTransformBuilder.ts:499)
+[src/ImageTransformBuilder.ts:522](src/ImageTransformBuilder.ts:522)
 
 ___
 
@@ -553,11 +571,11 @@ Convert Image to grayscale
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#grayscale)](https://developer.ringpublishing.com/topics/images/transformations.html#grayscale))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#grayscale)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#grayscale))
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:319](src/ImageTransformBuilder.ts:319)
+[src/ImageTransformBuilder.ts:320](src/ImageTransformBuilder.ts:320)
 
 ___
 
@@ -579,11 +597,11 @@ Change path in original image URL to a md5 or sha1 hash
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#hash)](https://developer.ringpublishing.com/topics/images/transformations.html#hash))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#hash)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#hash))
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:408](src/ImageTransformBuilder.ts:408)
+[src/ImageTransformBuilder.ts:409](src/ImageTransformBuilder.ts:409)
 
 ___
 
@@ -613,7 +631,7 @@ Sets the format of the transformed image.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#imageformat)](https://developer.ringpublishing.com/topics/images/transformations.html#imageformat))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imageformat)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imageformat))
 
 #### Defined in
 
@@ -641,7 +659,7 @@ Set the quality of the transformed image using predefined quality levels.
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#imagequality)](https://developer.ringpublishing.com/topics/images/transformations.html#imagequality))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imagequality)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#imagequality))
 
 #### Defined in
 
@@ -675,11 +693,11 @@ Extends the picture to match given aspect ratio by adding blurred image of itsel
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#keep-aspect-ratio)](https://developer.ringpublishing.com/topics/images/transformations.html#keep-aspect-ratio))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#keep-aspect-ratio)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#keep-aspect-ratio))
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:457](src/ImageTransformBuilder.ts:457)
+[src/ImageTransformBuilder.ts:480](src/ImageTransformBuilder.ts:480)
 
 ___
 
@@ -703,7 +721,7 @@ Get metadata of the image
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#metadata)](https://developer.ringpublishing.com/topics/images/transformations.html#metadata))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata))
 
 #### Defined in
 
@@ -732,11 +750,11 @@ Combine image with another one
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#overlay)](https://developer.ringpublishing.com/topics/images/transformations.html#overlay))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#overlay))
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:388](src/ImageTransformBuilder.ts:388)
+[src/ImageTransformBuilder.ts:389](src/ImageTransformBuilder.ts:389)
 
 ___
 
@@ -757,7 +775,7 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:486](src/ImageTransformBuilder.ts:486)
+[src/ImageTransformBuilder.ts:509](src/ImageTransformBuilder.ts:509)
 
 ___
 
@@ -782,11 +800,11 @@ Resize image with preserving aspect ratio
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#resize)](https://developer.ringpublishing.com/topics/images/transformations.html#resize))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#resize](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#resize)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:277](src/ImageTransformBuilder.ts:277)
+[src/ImageTransformBuilder.ts:278](src/ImageTransformBuilder.ts:278)
 
 ___
 
@@ -809,11 +827,11 @@ Crop image automatically to given width and height
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#resizecropauto)](https://developer.ringpublishing.com/topics/images/transformations.html#resizecropauto))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#resizecropauto)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#resizecropauto))
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:342](src/ImageTransformBuilder.ts:342)
+[src/ImageTransformBuilder.ts:343](src/ImageTransformBuilder.ts:343)
 
 ___
 
@@ -843,7 +861,7 @@ The angle parameter specifies the number of 90 degree clockwise rotations to per
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#rotate)](https://developer.ringpublishing.com/topics/images/transformations.html#rotate))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#rotate)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#rotate))
 
 #### Defined in
 
@@ -872,11 +890,38 @@ Add background to image with alpha channel
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#set-background)](https://developer.ringpublishing.com/topics/images/transformations.html#set-background))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#set-background)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#set-background))
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:365](src/ImageTransformBuilder.ts:365)
+[src/ImageTransformBuilder.ts:366](src/ImageTransformBuilder.ts:366)
+
+___
+
+### setFocalPoint
+
+▸ **setFocalPoint**(`x`, `y`): `this`
+
+* Set the focal point of the image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `x` | `number` | Focal point X coordinate |
+| `y` | `number` | Focal point Y coordinate |
+
+#### Returns
+
+`this`
+
+**`See`**
+
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#set-focal-point)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#set-focal-point))
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:452](src/ImageTransformBuilder.ts:452)
 
 ___
 
@@ -899,11 +944,11 @@ Add file name to path
 
 **`See`**
 
-[https://developer.ringpublishing.com/topics/images/transformations.html#setname)](https://developer.ringpublishing.com/topics/images/transformations.html#setname))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#setname)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#setname))
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:429](src/ImageTransformBuilder.ts:429)
+[src/ImageTransformBuilder.ts:430](src/ImageTransformBuilder.ts:430)
 
 ___
 
@@ -924,4 +969,4 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:473](src/ImageTransformBuilder.ts:473)
+[src/ImageTransformBuilder.ts:496](src/ImageTransformBuilder.ts:496)
