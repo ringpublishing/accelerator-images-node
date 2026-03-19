@@ -12,7 +12,7 @@ and encode them into a URL that can be used in the website's HTML.
 
 - List of [available transformations](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html)
 - [Ring Accelerator Images variant](https://developer.ringpublishing.com/docs/Accelerator/topics/variant-types/images.html)
-- @ringpublishing/accelerator-images [API documentation](./docs/README.md)
+- @ringpublishing/accelerator-images [API documentation](./docs/api/README.md)
 
 ### Quick start
 
@@ -100,6 +100,38 @@ const transformationKey = 'abc'; // You need to know the transformation key that
 const image = AcceleratorImage.fromTransformationUrl(transformationUrl, transformationKey);
 ```
 
+### Using clone of AcceleratorImage object
+
+If you want to create an `AcceleratorImage` object that can be reused for other purposes (e.g., you’ve applied one transformation and want to use this object as a base for further transformations without mutating the original), you can use the .clone() method.
+
+This returns a new instance of `AcceleratorImage`, leaving the original image untouched when you apply transformations to the cloned object.
+
+```ts
+const image = new AcceleratorImage({
+    originalImageUrl: 's3://some-s3-bucket/images/d5b8348d9bbfce94534d66db1f330f44.jpg',
+    transformationKey: 'abc',
+    transformationHost: 'images.example.com'
+});
+
+const imageWithFocalPoint = image
+    .clone()
+    .setFocalPoint(100, 100); // New object with setFocalPoint transformation applied
+
+const image1x1Small = imageWithFocalPoint
+    .clone()
+    .resizeCropAuto(200, 200); // New object with setFocalPoint and resizeCropAuto (imageWithFocalPoint is untouched)
+const image1x1Medium = imageWithFocalPoint
+    .clone()
+    .resizeCropAuto(500, 500); // Same as above
+const image1x1Large = imageWithFocalPoint
+    .clone()
+    .resizeCropAuto(1000, 1000); // Same as above
+
+const image1x1SmallUrl = image1x1Small.getUrl();
+const image1x1MediumUrl = image1x1Medium.getUrl();
+const image1x1LargeUrl = image1x1Large.getUrl();
+```
+
 ### Legacy OCDN buckets
 
 If you are using a legacy OCDN bucket, you can use the `LegacyImage` class to define transformations. 
@@ -125,6 +157,19 @@ const url = image.getUrl();
 ## Development and contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information about how to contribute to this project.
+
+## Porting to other languages
+
+If you need to **port this library** to another language (Kotlin, Swift/Objective-C, PHP, Python,
+etc.) or generate a compatible implementation with an AI coding tool, a complete language-agnostic
+specification is available in [`docs/spec/`](./docs/spec/):
+
+- [`SPECIFICATION.md`](./docs/spec/SPECIFICATION.md) — full encoding pipeline, transform/parameter
+  schema tables, URL structure, and error conditions.
+- [`TEST_CASES.md`](./docs/spec/TEST_CASES.md) — deterministic test vectors with exact expected
+  URLs for verifying a reimplementation.
+- [`PORTING_GUIDE.md`](./docs/spec/PORTING_GUIDE.md) — a step-by-step recipe for using an AI
+  coding assistant (Claude Code, GitHub Copilot, etc.) to generate a working port.
 
 ## Issues
 

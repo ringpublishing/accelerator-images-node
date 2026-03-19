@@ -129,6 +129,7 @@ export class ImageTransformBuilder {
 
     /**
      * Get image format
+     * @returns The currently configured image format, if set.
      */
     public getImageFormat(): ImageFormat | undefined {
         return this.getParameter(ParameterCode.imageFormat) as ImageFormat | undefined;
@@ -150,6 +151,7 @@ export class ImageTransformBuilder {
 
     /**
      * Get image quality
+     * @returns The current image quality setting, or `undefined` if none is set.
      */
     public getImageQuality(): ImageQuality | undefined {
         return this.getParameter(ParameterCode.imageQuality) as ImageQuality | undefined;
@@ -198,12 +200,18 @@ export class ImageTransformBuilder {
     }
 
     /**
-     * Get metadata of the image
+     * Request image metadata instead of the transformed image.
      *
-     * @param mode - Type of metadata to get.
+     * When this transformation is set, Accelerator returns metadata about the image (dimensions,
+     * EXIF, IPTC, etc.) as a JSON response rather than the image itself.
      *
-     * @throws {InvalidParameter}
-     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata)}
+     * **This transformation cannot be combined with any other transformation.**
+     * Calling {@link AcceleratorImage.getUrl} with both `metadata` and other transforms will throw {@link InvalidParameter}.
+     *
+     * @param mode - Type of metadata to retrieve. Defaults to `'basic'`.
+     *
+     * @throws {InvalidParameter} If an unsupported mode value is provided.
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata}
      */
     public metadata(mode?: MetadataType): this {
         this.pushTransform(TransformCode.metadata, [mode]);
@@ -212,7 +220,7 @@ export class ImageTransformBuilder {
     }
 
     /**
-     * Get metadata transformation arguments in decoded form. Returns undefined if the transformation is not set.
+     * Get metadata transformation arguments in decoded form. Returns `undefined` if the transformation is not set.
      */
     public getMetadata(): DecodedParameter[] | undefined {
         return this.getTransformArguments(TransformCode.metadata);
@@ -323,7 +331,9 @@ export class ImageTransformBuilder {
     }
 
     /**
-     * Get grayscale transformation arguments in decoded form. Returns undefined if the transformation is not set.
+     * Get grayscale transformation arguments in decoded form. Returns `undefined` if the transformation is not set.
+     *
+     * When the transformation is set this always returns an empty array (grayscale has no arguments).
      */
     public getGrayscale(): DecodedParameter[] | undefined {
         // When transformation is set this will always return an empty array. Maybe this function is pointless?

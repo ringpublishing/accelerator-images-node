@@ -1,150 +1,122 @@
-[@ringpublishing/accelerator-images](../README.md) / AcceleratorImage
+[@ringpublishing/accelerator-images](../README.md) / LegacyImage
 
-# Class: AcceleratorImage
+# Class: LegacyImage
 
-AcceleratorImage
+AcceleratorImage implementation for legacy OCDN URLs.
 
 ## Hierarchy
 
-- [`ImageTransformBuilder`](ImageTransformBuilder.md)
+- [`AcceleratorImage`](AcceleratorImage.md)
 
-  ↳ **`AcceleratorImage`**
-
-  ↳↳ [`LegacyImage`](LegacyImage.md)
+  ↳ **`LegacyImage`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](AcceleratorImage.md#constructor)
+- [constructor](LegacyImage.md#constructor)
 
 ### Properties
 
-- [fileName](AcceleratorImage.md#filename)
-- [isInitialized](AcceleratorImage.md#isinitialized)
-- [isRelative](AcceleratorImage.md#isrelative)
-- [originalImageUrl](AcceleratorImage.md#originalimageurl)
-- [params](AcceleratorImage.md#params)
-- [processedUrl](AcceleratorImage.md#processedurl)
-- [queryParameters](AcceleratorImage.md#queryparameters)
-- [transformationHost](AcceleratorImage.md#transformationhost)
-- [transformationKey](AcceleratorImage.md#transformationkey)
-- [transformationProtocol](AcceleratorImage.md#transformationprotocol)
-- [transforms](AcceleratorImage.md#transforms)
-- [VERSION](AcceleratorImage.md#version)
+- [bucket](LegacyImage.md#bucket)
+- [originalImageUrl](LegacyImage.md#originalimageurl)
+- [params](LegacyImage.md#params)
+- [processedUrl](LegacyImage.md#processedurl)
+- [transformationHost](LegacyImage.md#transformationhost)
+- [transformationProtocol](LegacyImage.md#transformationprotocol)
+- [transforms](LegacyImage.md#transforms)
+- [VERSION](LegacyImage.md#version)
 
 ### Accessors
 
-- [hasTransforms](AcceleratorImage.md#hastransforms)
+- [hasTransforms](LegacyImage.md#hastransforms)
 
 ### Methods
 
-- [animation](AcceleratorImage.md#animation)
-- [autoOrient](AcceleratorImage.md#autoorient)
-- [blur](AcceleratorImage.md#blur)
-- [crop](AcceleratorImage.md#crop)
-- [deconstructTransformationUrl](AcceleratorImage.md#deconstructtransformationurl)
-- [forceHttpProtocol](AcceleratorImage.md#forcehttpprotocol)
-- [getAnimation](AcceleratorImage.md#getanimation)
-- [getAutoOrient](AcceleratorImage.md#getautoorient)
-- [getBlur](AcceleratorImage.md#getblur)
-- [getCrop](AcceleratorImage.md#getcrop)
-- [getGrayscale](AcceleratorImage.md#getgrayscale)
-- [getHash](AcceleratorImage.md#gethash)
-- [getImageFormat](AcceleratorImage.md#getimageformat)
-- [getImageQuality](AcceleratorImage.md#getimagequality)
-- [getKeepAspectRatio](AcceleratorImage.md#getkeepaspectratio)
-- [getMetadata](AcceleratorImage.md#getmetadata)
-- [getOverlay](AcceleratorImage.md#getoverlay)
-- [getParameters](AcceleratorImage.md#getparameters)
-- [getParent](AcceleratorImage.md#getparent)
-- [getResize](AcceleratorImage.md#getresize)
-- [getResizeCropAuto](AcceleratorImage.md#getresizecropauto)
-- [getRotate](AcceleratorImage.md#getrotate)
-- [getSetBackground](AcceleratorImage.md#getsetbackground)
-- [getSetFocalPoint](AcceleratorImage.md#getsetfocalpoint)
-- [getSetName](AcceleratorImage.md#getsetname)
-- [getTransformationPath](AcceleratorImage.md#gettransformationpath)
-- [getTransformationUrl](AcceleratorImage.md#gettransformationurl)
-- [getTransforms](AcceleratorImage.md#gettransforms)
-- [getUrl](AcceleratorImage.md#geturl)
-- [grayscale](AcceleratorImage.md#grayscale)
-- [hash](AcceleratorImage.md#hash)
-- [imageFormat](AcceleratorImage.md#imageformat)
-- [imageQuality](AcceleratorImage.md#imagequality)
-- [initialize](AcceleratorImage.md#initialize)
-- [keepAspectRatio](AcceleratorImage.md#keepaspectratio)
-- [metadata](AcceleratorImage.md#metadata)
-- [overlay](AcceleratorImage.md#overlay)
-- [parse](AcceleratorImage.md#parse)
-- [parseOriginal](AcceleratorImage.md#parseoriginal)
-- [parseTransformation](AcceleratorImage.md#parsetransformation)
-- [relative](AcceleratorImage.md#relative)
-- [resize](AcceleratorImage.md#resize)
-- [resizeCropAuto](AcceleratorImage.md#resizecropauto)
-- [rotate](AcceleratorImage.md#rotate)
-- [saveAs](AcceleratorImage.md#saveas)
-- [setBackground](AcceleratorImage.md#setbackground)
-- [setFocalPoint](AcceleratorImage.md#setfocalpoint)
-- [setName](AcceleratorImage.md#setname)
-- [setResponseHeader](AcceleratorImage.md#setresponseheader)
-- [toString](AcceleratorImage.md#tostring)
-- [withoutProtocol](AcceleratorImage.md#withoutprotocol)
-- [fromTransformationUrl](AcceleratorImage.md#fromtransformationurl)
+- [animation](LegacyImage.md#animation)
+- [autoOrient](LegacyImage.md#autoorient)
+- [blur](LegacyImage.md#blur)
+- [clone](LegacyImage.md#clone)
+- [crop](LegacyImage.md#crop)
+- [deconstructTransformationUrl](LegacyImage.md#deconstructtransformationurl)
+- [forceHttpProtocol](LegacyImage.md#forcehttpprotocol)
+- [getAnimation](LegacyImage.md#getanimation)
+- [getAutoOrient](LegacyImage.md#getautoorient)
+- [getBlur](LegacyImage.md#getblur)
+- [getCrop](LegacyImage.md#getcrop)
+- [getGrayscale](LegacyImage.md#getgrayscale)
+- [getHash](LegacyImage.md#gethash)
+- [getImageFormat](LegacyImage.md#getimageformat)
+- [getImageQuality](LegacyImage.md#getimagequality)
+- [getKeepAspectRatio](LegacyImage.md#getkeepaspectratio)
+- [getMetadata](LegacyImage.md#getmetadata)
+- [getOverlay](LegacyImage.md#getoverlay)
+- [getParameters](LegacyImage.md#getparameters)
+- [getParent](LegacyImage.md#getparent)
+- [getResize](LegacyImage.md#getresize)
+- [getResizeCropAuto](LegacyImage.md#getresizecropauto)
+- [getRotate](LegacyImage.md#getrotate)
+- [getSetBackground](LegacyImage.md#getsetbackground)
+- [getSetFocalPoint](LegacyImage.md#getsetfocalpoint)
+- [getSetName](LegacyImage.md#getsetname)
+- [getTransformationPath](LegacyImage.md#gettransformationpath)
+- [getTransforms](LegacyImage.md#gettransforms)
+- [getUrl](LegacyImage.md#geturl)
+- [grayscale](LegacyImage.md#grayscale)
+- [hash](LegacyImage.md#hash)
+- [imageFormat](LegacyImage.md#imageformat)
+- [imageQuality](LegacyImage.md#imagequality)
+- [keepAspectRatio](LegacyImage.md#keepaspectratio)
+- [metadata](LegacyImage.md#metadata)
+- [overlay](LegacyImage.md#overlay)
+- [parse](LegacyImage.md#parse)
+- [parseOriginal](LegacyImage.md#parseoriginal)
+- [relative](LegacyImage.md#relative)
+- [resize](LegacyImage.md#resize)
+- [resizeCropAuto](LegacyImage.md#resizecropauto)
+- [rotate](LegacyImage.md#rotate)
+- [saveAs](LegacyImage.md#saveas)
+- [setBackground](LegacyImage.md#setbackground)
+- [setBucket](LegacyImage.md#setbucket)
+- [setFocalPoint](LegacyImage.md#setfocalpoint)
+- [setName](LegacyImage.md#setname)
+- [toString](LegacyImage.md#tostring)
+- [withoutProtocol](LegacyImage.md#withoutprotocol)
+- [fromTransformationUrl](LegacyImage.md#fromtransformationurl)
 
 ## Constructors
 
 ### constructor
 
-• **new AcceleratorImage**(`params`): [`AcceleratorImage`](AcceleratorImage.md)
+• **new LegacyImage**(`params`): [`LegacyImage`](LegacyImage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`AcceleratorImageParams`](../interfaces/AcceleratorImageParams.md) |
+| `params` | [`LegacyImageParams`](../README.md#legacyimageparams) |
 
 #### Returns
 
-[`AcceleratorImage`](AcceleratorImage.md)
+[`LegacyImage`](LegacyImage.md)
 
 #### Overrides
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[constructor](ImageTransformBuilder.md#constructor)
+[AcceleratorImage](AcceleratorImage.md).[constructor](AcceleratorImage.md#constructor)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:64](src/AcceleratorImage.ts:64)
+[src/LegacyImage.ts:21](src/LegacyImage.ts:21)
 
 ## Properties
 
-### fileName
+### bucket
 
-• `Private` **fileName**: `string`
-
-#### Defined in
-
-[src/AcceleratorImage.ts:54](src/AcceleratorImage.ts:54)
-
-___
-
-### isInitialized
-
-• `Private` **isInitialized**: `boolean` = `false`
+• `Private` **bucket**: `string`
 
 #### Defined in
 
-[src/AcceleratorImage.ts:40](src/AcceleratorImage.ts:40)
-
-___
-
-### isRelative
-
-• `Private` **isRelative**: `boolean` = `false`
-
-#### Defined in
-
-[src/AcceleratorImage.ts:52](src/AcceleratorImage.ts:52)
+[src/LegacyImage.ts:11](src/LegacyImage.ts:11)
 
 ___
 
@@ -152,9 +124,13 @@ ___
 
 • `Protected` **originalImageUrl**: `string`
 
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[originalImageUrl](AcceleratorImage.md#originalimageurl)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:50](src/AcceleratorImage.ts:50)
+[src/AcceleratorImage.ts:74](src/AcceleratorImage.ts:74)
 
 ___
 
@@ -164,7 +140,7 @@ ___
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[params](ImageTransformBuilder.md#params)
+[AcceleratorImage](AcceleratorImage.md).[params](AcceleratorImage.md#params)
 
 #### Defined in
 
@@ -176,19 +152,13 @@ ___
 
 • `Protected` **processedUrl**: `string`
 
-#### Defined in
+#### Inherited from
 
-[src/AcceleratorImage.ts:46](src/AcceleratorImage.ts:46)
-
-___
-
-### queryParameters
-
-• `Private` **queryParameters**: `Record`\<`string`, `string`\> = `{}`
+[AcceleratorImage](AcceleratorImage.md).[processedUrl](AcceleratorImage.md#processedurl)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:56](src/AcceleratorImage.ts:56)
+[src/AcceleratorImage.ts:70](src/AcceleratorImage.ts:70)
 
 ___
 
@@ -196,19 +166,13 @@ ___
 
 • `Protected` **transformationHost**: `string`
 
-#### Defined in
+#### Inherited from
 
-[src/AcceleratorImage.ts:42](src/AcceleratorImage.ts:42)
-
-___
-
-### transformationKey
-
-• `Private` `Readonly` **transformationKey**: `string`
+[AcceleratorImage](AcceleratorImage.md).[transformationHost](AcceleratorImage.md#transformationhost)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:48](src/AcceleratorImage.ts:48)
+[src/AcceleratorImage.ts:66](src/AcceleratorImage.ts:66)
 
 ___
 
@@ -216,9 +180,13 @@ ___
 
 • `Protected` **transformationProtocol**: ``null`` \| `Protocol` = `'https'`
 
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[transformationProtocol](AcceleratorImage.md#transformationprotocol)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:44](src/AcceleratorImage.ts:44)
+[src/AcceleratorImage.ts:68](src/AcceleratorImage.ts:68)
 
 ___
 
@@ -228,7 +196,7 @@ ___
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[transforms](ImageTransformBuilder.md#transforms)
+[AcceleratorImage](AcceleratorImage.md).[transforms](AcceleratorImage.md#transforms)
 
 #### Defined in
 
@@ -242,9 +210,13 @@ ___
 
 Current version of the Accelerator Images transformation URL
 
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[VERSION](AcceleratorImage.md#version)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:38](src/AcceleratorImage.ts:38)
+[src/AcceleratorImage.ts:62](src/AcceleratorImage.ts:62)
 
 ## Accessors
 
@@ -252,13 +224,20 @@ Current version of the Accelerator Images transformation URL
 
 • `get` **hasTransforms**(): `boolean`
 
+Returns `true` when at least one transformation or at least one global parameter
+(e.g. [imageFormat](AcceleratorImage.md#imageformat), [imageQuality](AcceleratorImage.md#imagequality)) has been set on this instance.
+
 #### Returns
 
 `boolean`
 
+#### Inherited from
+
+AcceleratorImage.hasTransforms
+
 #### Defined in
 
-[src/AcceleratorImage.ts:100](src/AcceleratorImage.ts:100)
+[src/AcceleratorImage.ts:148](src/AcceleratorImage.ts:148)
 
 ## Methods
 
@@ -286,11 +265,11 @@ Set animation
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[animation](ImageTransformBuilder.md#animation)
+[AcceleratorImage](AcceleratorImage.md).[animation](AcceleratorImage.md#animation)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:166](src/ImageTransformBuilder.ts:166)
+[src/ImageTransformBuilder.ts:168](src/ImageTransformBuilder.ts:168)
 
 ___
 
@@ -318,11 +297,11 @@ Set auto-orientation
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[autoOrient](ImageTransformBuilder.md#autoorient)
+[AcceleratorImage](AcceleratorImage.md).[autoOrient](AcceleratorImage.md#autoorient)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:187](src/ImageTransformBuilder.ts:187)
+[src/ImageTransformBuilder.ts:189](src/ImageTransformBuilder.ts:189)
 
 ___
 
@@ -350,11 +329,36 @@ Apply blur effect to the image
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[blur](ImageTransformBuilder.md#blur)
+[AcceleratorImage](AcceleratorImage.md).[blur](AcceleratorImage.md#blur)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:254](src/ImageTransformBuilder.ts:254)
+[src/ImageTransformBuilder.ts:262](src/ImageTransformBuilder.ts:262)
+
+___
+
+### clone
+
+▸ **clone**(): [`AcceleratorImage`](AcceleratorImage.md)
+
+Returns a deep clone of this instance with all transformations and parameters copied.
+
+Mutations applied to the clone do not affect the original instance and vice-versa.
+If no transformations are set, this is equivalent to [AcceleratorImage.getParent](AcceleratorImage.md#getparent).
+
+#### Returns
+
+[`AcceleratorImage`](AcceleratorImage.md)
+
+A new [AcceleratorImage](AcceleratorImage.md) instance with the same transformations.
+
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[clone](AcceleratorImage.md#clone)
+
+#### Defined in
+
+[src/AcceleratorImage.ts:328](src/AcceleratorImage.ts:328)
 
 ___
 
@@ -385,11 +389,11 @@ Crop image to a given size
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[crop](ImageTransformBuilder.md#crop)
+[AcceleratorImage](AcceleratorImage.md).[crop](AcceleratorImage.md#crop)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:302](src/ImageTransformBuilder.ts:302)
+[src/ImageTransformBuilder.ts:309](src/ImageTransformBuilder.ts:309)
 
 ___
 
@@ -413,9 +417,13 @@ ___
 | `fileName` | `string` |
 | `version` | `string` |
 
+#### Overrides
+
+[AcceleratorImage](AcceleratorImage.md).[deconstructTransformationUrl](AcceleratorImage.md#deconstructtransformationurl)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:153](src/AcceleratorImage.ts:153)
+[src/LegacyImage.ts:50](src/LegacyImage.ts:50)
 
 ___
 
@@ -423,13 +431,21 @@ ___
 
 ▸ **forceHttpProtocol**(): `this`
 
+Forces the generated transformation URL to use the `http` protocol instead of the default `https`.
+
 #### Returns
 
 `this`
 
+The current instance for method chaining.
+
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[forceHttpProtocol](AcceleratorImage.md#forcehttpprotocol)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:218](src/AcceleratorImage.ts:218)
+[src/AcceleratorImage.ts:279](src/AcceleratorImage.ts:279)
 
 ___
 
@@ -445,11 +461,11 @@ Get animation
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getAnimation](ImageTransformBuilder.md#getanimation)
+[AcceleratorImage](AcceleratorImage.md).[getAnimation](AcceleratorImage.md#getanimation)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:175](src/ImageTransformBuilder.ts:175)
+[src/ImageTransformBuilder.ts:177](src/ImageTransformBuilder.ts:177)
 
 ___
 
@@ -465,11 +481,11 @@ Get auto-orientation
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getAutoOrient](ImageTransformBuilder.md#getautoorient)
+[AcceleratorImage](AcceleratorImage.md).[getAutoOrient](AcceleratorImage.md#getautoorient)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:196](src/ImageTransformBuilder.ts:196)
+[src/ImageTransformBuilder.ts:198](src/ImageTransformBuilder.ts:198)
 
 ___
 
@@ -485,11 +501,11 @@ Get blur transformation arguments in decoded form. Returns undefined if the tran
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getBlur](ImageTransformBuilder.md#getblur)
+[AcceleratorImage](AcceleratorImage.md).[getBlur](AcceleratorImage.md#getblur)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:263](src/ImageTransformBuilder.ts:263)
+[src/ImageTransformBuilder.ts:271](src/ImageTransformBuilder.ts:271)
 
 ___
 
@@ -505,11 +521,11 @@ Get crop transformation arguments in decoded form. Returns undefined if the tran
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getCrop](ImageTransformBuilder.md#getcrop)
+[AcceleratorImage](AcceleratorImage.md).[getCrop](AcceleratorImage.md#getcrop)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:311](src/ImageTransformBuilder.ts:311)
+[src/ImageTransformBuilder.ts:318](src/ImageTransformBuilder.ts:318)
 
 ___
 
@@ -517,7 +533,9 @@ ___
 
 ▸ **getGrayscale**(): `undefined` \| `DecodedParameter`[]
 
-Get grayscale transformation arguments in decoded form. Returns undefined if the transformation is not set.
+Get grayscale transformation arguments in decoded form. Returns `undefined` if the transformation is not set.
+
+When the transformation is set this always returns an empty array (grayscale has no arguments).
 
 #### Returns
 
@@ -525,11 +543,11 @@ Get grayscale transformation arguments in decoded form. Returns undefined if the
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getGrayscale](ImageTransformBuilder.md#getgrayscale)
+[AcceleratorImage](AcceleratorImage.md).[getGrayscale](AcceleratorImage.md#getgrayscale)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:329](src/ImageTransformBuilder.ts:329)
+[src/ImageTransformBuilder.ts:338](src/ImageTransformBuilder.ts:338)
 
 ___
 
@@ -545,11 +563,11 @@ Get hash transformation arguments in decoded form. Returns undefined if the tran
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getHash](ImageTransformBuilder.md#gethash)
+[AcceleratorImage](AcceleratorImage.md).[getHash](AcceleratorImage.md#gethash)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:418](src/ImageTransformBuilder.ts:418)
+[src/ImageTransformBuilder.ts:427](src/ImageTransformBuilder.ts:427)
 
 ___
 
@@ -563,13 +581,15 @@ Get image format
 
 `undefined` \| [`ImageFormat`](../README.md#imageformat)
 
+The currently configured image format, if set.
+
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getImageFormat](ImageTransformBuilder.md#getimageformat)
+[AcceleratorImage](AcceleratorImage.md).[getImageFormat](AcceleratorImage.md#getimageformat)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:133](src/ImageTransformBuilder.ts:133)
+[src/ImageTransformBuilder.ts:134](src/ImageTransformBuilder.ts:134)
 
 ___
 
@@ -583,13 +603,15 @@ Get image quality
 
 `undefined` \| [`ImageQuality`](../README.md#imagequality)
 
+The current image quality setting, or `undefined` if none is set.
+
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getImageQuality](ImageTransformBuilder.md#getimagequality)
+[AcceleratorImage](AcceleratorImage.md).[getImageQuality](AcceleratorImage.md#getimagequality)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:154](src/ImageTransformBuilder.ts:154)
+[src/ImageTransformBuilder.ts:156](src/ImageTransformBuilder.ts:156)
 
 ___
 
@@ -605,11 +627,11 @@ Get keepAspectRatio transformation arguments in decoded form. Returns undefined 
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getKeepAspectRatio](ImageTransformBuilder.md#getkeepaspectratio)
+[AcceleratorImage](AcceleratorImage.md).[getKeepAspectRatio](AcceleratorImage.md#getkeepaspectratio)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:492](src/ImageTransformBuilder.ts:492)
+[src/ImageTransformBuilder.ts:500](src/ImageTransformBuilder.ts:500)
 
 ___
 
@@ -617,7 +639,7 @@ ___
 
 ▸ **getMetadata**(): `undefined` \| `DecodedParameter`[]
 
-Get metadata transformation arguments in decoded form. Returns undefined if the transformation is not set.
+Get metadata transformation arguments in decoded form. Returns `undefined` if the transformation is not set.
 
 #### Returns
 
@@ -625,11 +647,11 @@ Get metadata transformation arguments in decoded form. Returns undefined if the 
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getMetadata](ImageTransformBuilder.md#getmetadata)
+[AcceleratorImage](AcceleratorImage.md).[getMetadata](AcceleratorImage.md#getmetadata)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:217](src/ImageTransformBuilder.ts:217)
+[src/ImageTransformBuilder.ts:225](src/ImageTransformBuilder.ts:225)
 
 ___
 
@@ -645,11 +667,11 @@ Get overlay transformation arguments in decoded form. Returns undefined if the t
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getOverlay](ImageTransformBuilder.md#getoverlay)
+[AcceleratorImage](AcceleratorImage.md).[getOverlay](AcceleratorImage.md#getoverlay)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:398](src/ImageTransformBuilder.ts:398)
+[src/ImageTransformBuilder.ts:407](src/ImageTransformBuilder.ts:407)
 
 ___
 
@@ -665,7 +687,7 @@ Returns a deep copy of encoded parameters object.
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getParameters](ImageTransformBuilder.md#getparameters)
+[AcceleratorImage](AcceleratorImage.md).[getParameters](AcceleratorImage.md#getparameters)
 
 #### Defined in
 
@@ -677,15 +699,24 @@ ___
 
 ▸ **getParent**(): [`AcceleratorImage`](AcceleratorImage.md)
 
-Returns a new instance of [AcceleratorImage](AcceleratorImage.md) with originalImageUrl image's URL
+Returns a new, bare [AcceleratorImage](AcceleratorImage.md) instance pointing at the same original image URL,
+with the same `transformationKey` and `transformationHost`, but with **no transformations**.
+
+Useful when you want to start a new transformation chain from scratch based on the same source image.
 
 #### Returns
 
 [`AcceleratorImage`](AcceleratorImage.md)
 
+A new [AcceleratorImage](AcceleratorImage.md) instance with no transformations applied.
+
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[getParent](AcceleratorImage.md#getparent)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:240](src/AcceleratorImage.ts:240)
+[src/AcceleratorImage.ts:312](src/AcceleratorImage.ts:312)
 
 ___
 
@@ -701,11 +732,11 @@ Get resize transformation arguments in decoded form. Returns undefined if the tr
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getResize](ImageTransformBuilder.md#getresize)
+[AcceleratorImage](AcceleratorImage.md).[getResize](AcceleratorImage.md#getresize)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:287](src/ImageTransformBuilder.ts:287)
+[src/ImageTransformBuilder.ts:294](src/ImageTransformBuilder.ts:294)
 
 ___
 
@@ -721,11 +752,11 @@ Get resizeCropAuto transformation arguments in decoded form. Returns undefined i
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getResizeCropAuto](ImageTransformBuilder.md#getresizecropauto)
+[AcceleratorImage](AcceleratorImage.md).[getResizeCropAuto](AcceleratorImage.md#getresizecropauto)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:352](src/ImageTransformBuilder.ts:352)
+[src/ImageTransformBuilder.ts:361](src/ImageTransformBuilder.ts:361)
 
 ___
 
@@ -741,11 +772,11 @@ Get rotate transformation arguments in decoded form. Returns undefined if the tr
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getRotate](ImageTransformBuilder.md#getrotate)
+[AcceleratorImage](AcceleratorImage.md).[getRotate](AcceleratorImage.md#getrotate)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:242](src/ImageTransformBuilder.ts:242)
+[src/ImageTransformBuilder.ts:250](src/ImageTransformBuilder.ts:250)
 
 ___
 
@@ -761,11 +792,11 @@ Get setBackground transformation arguments in decoded form. Returns undefined if
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getSetBackground](ImageTransformBuilder.md#getsetbackground)
+[AcceleratorImage](AcceleratorImage.md).[getSetBackground](AcceleratorImage.md#getsetbackground)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:375](src/ImageTransformBuilder.ts:375)
+[src/ImageTransformBuilder.ts:384](src/ImageTransformBuilder.ts:384)
 
 ___
 
@@ -781,11 +812,11 @@ Get setFocalPoint transformation arguments in decoded form. Returns undefined if
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getSetFocalPoint](ImageTransformBuilder.md#getsetfocalpoint)
+[AcceleratorImage](AcceleratorImage.md).[getSetFocalPoint](AcceleratorImage.md#getsetfocalpoint)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:461](src/ImageTransformBuilder.ts:461)
+[src/ImageTransformBuilder.ts:469](src/ImageTransformBuilder.ts:469)
 
 ___
 
@@ -801,11 +832,11 @@ Get setName transformation arguments in decoded form. Returns undefined if the t
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getSetName](ImageTransformBuilder.md#getsetname)
+[AcceleratorImage](AcceleratorImage.md).[getSetName](AcceleratorImage.md#getsetname)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:439](src/ImageTransformBuilder.ts:439)
+[src/ImageTransformBuilder.ts:448](src/ImageTransformBuilder.ts:448)
 
 ___
 
@@ -819,23 +850,13 @@ Returns URL's path of the transformed image
 
 `string`
 
-#### Defined in
+#### Overrides
 
-[src/AcceleratorImage.ts:251](src/AcceleratorImage.ts:251)
-
-___
-
-### getTransformationUrl
-
-▸ **getTransformationUrl**(): `string`
-
-#### Returns
-
-`string`
+[AcceleratorImage](AcceleratorImage.md).[getTransformationPath](AcceleratorImage.md#gettransformationpath)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:295](src/AcceleratorImage.ts:295)
+[src/LegacyImage.ts:59](src/LegacyImage.ts:59)
 
 ___
 
@@ -851,7 +872,7 @@ Returns a deep copy of encoded transforms array.
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[getTransforms](ImageTransformBuilder.md#gettransforms)
+[AcceleratorImage](AcceleratorImage.md).[getTransforms](AcceleratorImage.md#gettransforms)
 
 #### Defined in
 
@@ -863,24 +884,33 @@ ___
 
 ▸ **getUrl**(): `string`
 
-Get image's URL
+Returns the URL for this image.
+
+- When **no** transformations or global parameters are set, returns the original image URL as-is.
+- When **at least one** transformation or parameter is set, returns a fully-qualified
+  Accelerator Images transformation URL.
 
 #### Returns
 
 `string`
 
-**`Rationale`**
-
-When an object does not have and transformations nor transformation parameters set this will return URL to the original image.
-When transformations are set, this will return URL to the transformed image.
+The original image URL or the encoded transformation URL.
 
 **`Throws`**
 
-when object is not initialized.
+When the instance is not initialized (no `originalImageUrl` was provided).
+
+**`Throws`**
+
+When [metadata](AcceleratorImage.md#metadata) is combined with other transformations.
+
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[getUrl](AcceleratorImage.md#geturl)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:268](src/AcceleratorImage.ts:268)
+[src/AcceleratorImage.ts:359](src/AcceleratorImage.ts:359)
 
 ___
 
@@ -900,11 +930,11 @@ Convert Image to grayscale
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[grayscale](ImageTransformBuilder.md#grayscale)
+[AcceleratorImage](AcceleratorImage.md).[grayscale](AcceleratorImage.md#grayscale)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:320](src/ImageTransformBuilder.ts:320)
+[src/ImageTransformBuilder.ts:327](src/ImageTransformBuilder.ts:327)
 
 ___
 
@@ -930,11 +960,11 @@ Change path in original image URL to a md5 or sha1 hash
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[hash](ImageTransformBuilder.md#hash)
+[AcceleratorImage](AcceleratorImage.md).[hash](AcceleratorImage.md#hash)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:409](src/ImageTransformBuilder.ts:409)
+[src/ImageTransformBuilder.ts:418](src/ImageTransformBuilder.ts:418)
 
 ___
 
@@ -968,7 +998,7 @@ Sets the format of the transformed image.
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[imageFormat](ImageTransformBuilder.md#imageformat)
+[AcceleratorImage](AcceleratorImage.md).[imageFormat](AcceleratorImage.md#imageformat)
 
 #### Defined in
 
@@ -1000,31 +1030,11 @@ Set the quality of the transformed image using predefined quality levels.
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[imageQuality](ImageTransformBuilder.md#imagequality)
+[AcceleratorImage](AcceleratorImage.md).[imageQuality](AcceleratorImage.md#imagequality)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:145](src/ImageTransformBuilder.ts:145)
-
-___
-
-### initialize
-
-▸ **initialize**(`url`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/AcceleratorImage.ts:181](src/AcceleratorImage.ts:181)
+[src/ImageTransformBuilder.ts:146](src/ImageTransformBuilder.ts:146)
 
 ___
 
@@ -1058,11 +1068,11 @@ Extends the picture to match given aspect ratio by adding blurred image of itsel
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[keepAspectRatio](ImageTransformBuilder.md#keepaspectratio)
+[AcceleratorImage](AcceleratorImage.md).[keepAspectRatio](AcceleratorImage.md#keepaspectratio)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:480](src/ImageTransformBuilder.ts:480)
+[src/ImageTransformBuilder.ts:488](src/ImageTransformBuilder.ts:488)
 
 ___
 
@@ -1070,13 +1080,19 @@ ___
 
 ▸ **metadata**(`mode?`): `this`
 
-Get metadata of the image
+Request image metadata instead of the transformed image.
+
+When this transformation is set, Accelerator returns metadata about the image (dimensions,
+EXIF, IPTC, etc.) as a JSON response rather than the image itself.
+
+**This transformation cannot be combined with any other transformation.**
+Calling [AcceleratorImage.getUrl](AcceleratorImage.md#geturl) with both `metadata` and other transforms will throw [InvalidParameter](InvalidParameter.md).
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mode?` | [`MetadataType`](../README.md#metadatatype) | Type of metadata to get. |
+| `mode?` | [`MetadataType`](../README.md#metadatatype) | Type of metadata to retrieve. Defaults to `'basic'`. |
 
 #### Returns
 
@@ -1084,17 +1100,19 @@ Get metadata of the image
 
 **`Throws`**
 
+If an unsupported mode value is provided.
+
 **`See`**
 
-[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata)](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata))
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#metadata)
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[metadata](ImageTransformBuilder.md#metadata)
+[AcceleratorImage](AcceleratorImage.md).[metadata](AcceleratorImage.md#metadata)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:208](src/ImageTransformBuilder.ts:208)
+[src/ImageTransformBuilder.ts:216](src/ImageTransformBuilder.ts:216)
 
 ___
 
@@ -1123,11 +1141,11 @@ Combine image with another one
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[overlay](ImageTransformBuilder.md#overlay)
+[AcceleratorImage](AcceleratorImage.md).[overlay](AcceleratorImage.md#overlay)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:389](src/ImageTransformBuilder.ts:389)
+[src/ImageTransformBuilder.ts:398](src/ImageTransformBuilder.ts:398)
 
 ___
 
@@ -1146,9 +1164,13 @@ ___
 
 `void`
 
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[parse](AcceleratorImage.md#parse)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:160](src/AcceleratorImage.ts:160)
+[src/AcceleratorImage.ts:208](src/AcceleratorImage.ts:208)
 
 ___
 
@@ -1166,29 +1188,13 @@ ___
 
 `void`
 
-#### Defined in
+#### Overrides
 
-[src/AcceleratorImage.ts:104](src/AcceleratorImage.ts:104)
-
-___
-
-### parseTransformation
-
-▸ **parseTransformation**(`url`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `URL` |
-
-#### Returns
-
-`void`
+[AcceleratorImage](AcceleratorImage.md).[parseOriginal](AcceleratorImage.md#parseoriginal)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:123](src/AcceleratorImage.ts:123)
+[src/LegacyImage.ts:30](src/LegacyImage.ts:30)
 
 ___
 
@@ -1196,21 +1202,31 @@ ___
 
 ▸ **relative**(`isRelative?`): `this`
 
-Set path as relative
+Makes the generated URL path-relative (no protocol or host).
+
+When enabled, [AcceleratorImage.getUrl](AcceleratorImage.md#geturl) returns only the path portion
+(e.g. `/1/{token}`) instead of a full URL. Has no effect when no transformations
+are set — the original image URL is returned unchanged regardless.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `isRelative` | `boolean` | `true` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `isRelative` | `boolean` | `true` | Pass `false` to revert to an absolute URL. Defaults to `true`. |
 
 #### Returns
 
 `this`
 
+The current instance for method chaining.
+
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[relative](AcceleratorImage.md#relative)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:196](src/AcceleratorImage.ts:196)
+[src/AcceleratorImage.ts:249](src/AcceleratorImage.ts:249)
 
 ___
 
@@ -1239,11 +1255,11 @@ Resize image with preserving aspect ratio
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[resize](ImageTransformBuilder.md#resize)
+[AcceleratorImage](AcceleratorImage.md).[resize](AcceleratorImage.md#resize)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:278](src/ImageTransformBuilder.ts:278)
+[src/ImageTransformBuilder.ts:285](src/ImageTransformBuilder.ts:285)
 
 ___
 
@@ -1270,11 +1286,11 @@ Crop image automatically to given width and height
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[resizeCropAuto](ImageTransformBuilder.md#resizecropauto)
+[AcceleratorImage](AcceleratorImage.md).[resizeCropAuto](AcceleratorImage.md#resizecropauto)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:343](src/ImageTransformBuilder.ts:343)
+[src/ImageTransformBuilder.ts:352](src/ImageTransformBuilder.ts:352)
 
 ___
 
@@ -1308,11 +1324,11 @@ The angle parameter specifies the number of 90 degree clockwise rotations to per
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[rotate](ImageTransformBuilder.md#rotate)
+[AcceleratorImage](AcceleratorImage.md).[rotate](AcceleratorImage.md#rotate)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:233](src/ImageTransformBuilder.ts:233)
+[src/ImageTransformBuilder.ts:241](src/ImageTransformBuilder.ts:241)
 
 ___
 
@@ -1320,21 +1336,33 @@ ___
 
 ▸ **saveAs**(`name`): `void`
 
-Change filename in browser
+Sets the `Content-Disposition` response header so that the browser treats the image as a
+file download with the given filename.
+
+The filename is encoded as a UTF-8 RFC 5987 parameter
+(`attachment; filename*=UTF-8''<name>`).
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `name` | `string` | name of file |
+| `name` | `string` | The filename the browser should suggest when saving the image. |
 
 #### Returns
 
 `void`
 
+**`Deprecated`**
+
+This method will be removed in a future major version.
+
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[saveAs](AcceleratorImage.md#saveas)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:233](src/AcceleratorImage.ts:233)
+[src/AcceleratorImage.ts:300](src/AcceleratorImage.ts:300)
 
 ___
 
@@ -1363,11 +1391,31 @@ Add background to image with alpha channel
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[setBackground](ImageTransformBuilder.md#setbackground)
+[AcceleratorImage](AcceleratorImage.md).[setBackground](AcceleratorImage.md#setbackground)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:366](src/ImageTransformBuilder.ts:366)
+[src/ImageTransformBuilder.ts:375](src/ImageTransformBuilder.ts:375)
+
+___
+
+### setBucket
+
+▸ **setBucket**(`bucket`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `bucket` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/LegacyImage.ts:26](src/LegacyImage.ts:26)
 
 ___
 
@@ -1394,11 +1442,11 @@ ___
 
 #### Inherited from
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[setFocalPoint](ImageTransformBuilder.md#setfocalpoint)
+[AcceleratorImage](AcceleratorImage.md).[setFocalPoint](AcceleratorImage.md#setfocalpoint)
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:452](src/ImageTransformBuilder.ts:452)
+[src/ImageTransformBuilder.ts:460](src/ImageTransformBuilder.ts:460)
 
 ___
 
@@ -1406,46 +1454,42 @@ ___
 
 ▸ **setName**(`name`): `this`
 
-Add file name to path
+Appends a human-readable filename to the transformation URL path and registers a `setName`
+transformation in the encoded token.
+
+This override differs from [ImageTransformBuilder.setName](ImageTransformBuilder.md#setname) in two ways:
+- The full `name` value is appended as an extra path segment at the end of the URL
+  (e.g. `.../1/{token}/photo.jpg`), which helps CDN logs and browser downloads.
+- Only the first 6 characters of the MD5 hex digest of `name` are passed as the `name`
+  argument to the base `setName` transformation, keeping the encoded token compact.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `name` | `string` | Target file name |
+| `name` | `string` | Target filename. Must not contain `/`. |
 
 #### Returns
 
 `this`
 
-#### Overrides
+The current instance for method chaining.
 
-[ImageTransformBuilder](ImageTransformBuilder.md).[setName](ImageTransformBuilder.md#setname)
+**`Throws`**
 
-#### Defined in
+If `name` contains a `/` character.
 
-[src/AcceleratorImage.ts:321](src/AcceleratorImage.ts:321)
+**`See`**
 
-___
+[https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#setname](https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#setname)
 
-### setResponseHeader
+#### Inherited from
 
-▸ **setResponseHeader**(`header`, `value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `header` | `string` |
-| `value` | `string` |
-
-#### Returns
-
-`void`
+[AcceleratorImage](AcceleratorImage.md).[setName](AcceleratorImage.md#setname)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:224](src/AcceleratorImage.ts:224)
+[src/AcceleratorImage.ts:425](src/AcceleratorImage.ts:425)
 
 ___
 
@@ -1453,17 +1497,22 @@ ___
 
 ▸ **toString**(): `string`
 
+Returns the same value as [AcceleratorImage.getUrl](AcceleratorImage.md#geturl).
+When the instance is not initialized, returns a placeholder string instead of throwing.
+
 #### Returns
 
 `string`
 
-**`See`**
+The transformation URL, the original image URL, or `'[Uninitialized AcceleratorImage object]'`.
 
-[AcceleratorImage#getUrl](AcceleratorImage.md#geturl)
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[toString](AcceleratorImage.md#tostring)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:287](src/AcceleratorImage.ts:287)
+[src/AcceleratorImage.ts:381](src/AcceleratorImage.ts:381)
 
 ___
 
@@ -1471,23 +1520,30 @@ ___
 
 ▸ **withoutProtocol**(): `this`
 
-Remove protocol from the transformation URL
+Removes the protocol from the generated transformation URL, producing a protocol-relative URL.
+
+Has no effect when no transformations are set — the original image URL is returned unchanged.
 
 #### Returns
 
 `this`
 
+The current instance for method chaining.
+
 **`Example`**
 
-Here is a simple example:
 ```ts
-const img = new AcceleratorImage({originalImageUrl: 'https://example.com/img.js', transformationKey: TRANSFORM_KEY});
-img.withoutProtocol().toString(); // returns '//example.com/img.js'
+const img = new AcceleratorImage({originalImageUrl: 'https://example.com/img.jpg', transformationKey: TRANSFORM_KEY, transformationHost: 'images.example.com'});
+img.rotate(1).withoutProtocol().getUrl(); // '//images.example.com/1/...'
 ```
+
+#### Inherited from
+
+[AcceleratorImage](AcceleratorImage.md).[withoutProtocol](AcceleratorImage.md#withoutprotocol)
 
 #### Defined in
 
-[src/AcceleratorImage.ts:212](src/AcceleratorImage.ts:212)
+[src/AcceleratorImage.ts:268](src/AcceleratorImage.ts:268)
 
 ___
 
@@ -1495,19 +1551,38 @@ ___
 
 ▸ **fromTransformationUrl**(`transformedImageUrl`, `transformationKey`): [`AcceleratorImage`](AcceleratorImage.md)
 
-Parse URL to a transformed image and initialize AcceleratorImage object with transformation parameters
+Parses an existing Accelerator Images transformation URL and returns a fully initialized
+[AcceleratorImage](AcceleratorImage.md) instance with all transformations and parameters restored.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `transformedImageUrl` | `string` | URL of the transformed image |
-| `transformationKey` | `string` | Transformation transformationKey that was used to encode transformation parameters |
+| `transformedImageUrl` | `string` | A previously generated transformation URL. |
+| `transformationKey` | `string` | The secret key that was used to sign the URL. |
 
 #### Returns
 
 [`AcceleratorImage`](AcceleratorImage.md)
 
+A new [AcceleratorImage](AcceleratorImage.md) instance initialized from the decoded URL.
+
+**`Throws`**
+
+If the URL cannot be parsed.
+
+**`Throws`**
+
+If the URL version does not match [AcceleratorImage.VERSION](AcceleratorImage.md#version).
+
+**`Throws`**
+
+If the signature embedded in the token is invalid.
+
+#### Overrides
+
+[AcceleratorImage](AcceleratorImage.md).[fromTransformationUrl](AcceleratorImage.md#fromtransformationurl)
+
 #### Defined in
 
-[src/AcceleratorImage.ts:92](src/AcceleratorImage.ts:92)
+[src/LegacyImage.ts:13](src/LegacyImage.ts:13)

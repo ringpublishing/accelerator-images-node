@@ -12,7 +12,7 @@ describe('ImageTransformsBuilder', () => {
 
     describe('Parameters', () => {
         describe('imageFormat', () => {
-            it('should set image format', () => {
+            it('[TC-19] should set image format', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -22,7 +22,7 @@ describe('ImageTransformsBuilder', () => {
                 expect(result.getImageFormat()).toEqual('jpeg');
             });
 
-            it('Should throw error when unknown imageFormat', () => {
+            it('[TC-19] Should throw error when unknown imageFormat', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -33,7 +33,7 @@ describe('ImageTransformsBuilder', () => {
         });
 
         describe('imageQuality', () => {
-            it('should set image quality', () => {
+            it('[TC-20] should set image quality', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -43,7 +43,7 @@ describe('ImageTransformsBuilder', () => {
                 expect(result.getImageQuality()).toEqual('high');
             });
 
-            it('should set default image quality', () => {
+            it('[TC-20] should set default image quality', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -53,7 +53,7 @@ describe('ImageTransformsBuilder', () => {
                 expect(result.getImageQuality()).toEqual('medium');
             });
 
-            it('should throw error when imageQuality is not within limits', () => {
+            it('[TC-20] should throw error when imageQuality is not within limits', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -64,7 +64,7 @@ describe('ImageTransformsBuilder', () => {
         });
 
         describe('animation', () => {
-            it('should set animation', () => {
+            it('[TC-25] should set animation', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -76,7 +76,7 @@ describe('ImageTransformsBuilder', () => {
         });
 
         describe('autoOrient', () => {
-            it('should set autoOrient', () => {
+            it('[TC-26] should set autoOrient', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -90,7 +90,7 @@ describe('ImageTransformsBuilder', () => {
 
     describe('Transforms', () => {
         describe('rotate', () => {
-            it('should set rotate transformation', () => {
+            it('[TC-05] should set rotate transformation', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -121,7 +121,7 @@ describe('ImageTransformsBuilder', () => {
                 expect(builder.getBlur()).toEqual([5]);
             });
 
-            it('should throw error when blur power is greater than max allowed value', () => {
+            it('[TC-22] should throw error when blur power is greater than max allowed value', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -152,7 +152,7 @@ describe('ImageTransformsBuilder', () => {
                 expect(builder.getResize()).toEqual([100, 100, true, false]);
             });
 
-            it('should set default values', () => {
+            it('[TC-21] should set default values', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -173,7 +173,7 @@ describe('ImageTransformsBuilder', () => {
                 expect(builder.getCrop()).toEqual([100, 100, 200, 200]);
             });
 
-            it('should throw error when crop values are less than 0', () => {
+            it('[TC-23] should throw error when crop values are less than 0', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -184,7 +184,7 @@ describe('ImageTransformsBuilder', () => {
         });
 
         describe('grayscale', () => {
-            it('should set grayscale transformation', () => {
+            it('[TC-13] should set grayscale transformation', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -229,7 +229,7 @@ describe('ImageTransformsBuilder', () => {
         });
 
         describe('overlay', () => {
-            it('should set overlay transformation', () => {
+            it('[TC-24] should set overlay transformation', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -265,7 +265,7 @@ describe('ImageTransformsBuilder', () => {
         });
 
         describe('setName', () => {
-            it('should set name transformation', () => {
+            it('[TC-11/TC-12] should set name transformation', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -277,7 +277,7 @@ describe('ImageTransformsBuilder', () => {
         });
 
         describe('keepAspectRatio', () => {
-            it('should set keepAspectRatio transformation', () => {
+            it('[TC-27] should set keepAspectRatio transformation', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When
@@ -287,7 +287,7 @@ describe('ImageTransformsBuilder', () => {
                 expect(builder.getKeepAspectRatio()).toEqual([500, 250, 50, 100, 100, 100, 100, 10, 10]);
             });
 
-            it('should set keepAspectRatio transformation with default values', () => {
+            it('[TC-27] should set keepAspectRatio transformation with default values', () => {
                 // Given
                 const builder = new ImageTransformBuilder();
                 // When

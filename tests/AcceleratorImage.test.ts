@@ -4,7 +4,7 @@ const TRANSFORM_KEY = 'abc';
 
 describe('AcceleratorImage', () => {
     describe('Constructor', () => {
-        it('Should throw error when URL with incorrect signature is passed', () => {
+        it('[TC-15] Should throw error when URL with incorrect signature is passed', () => {
             const testUrl = 'https://images.example.com/1/k9kpTURBXy84ODBjZjYwNGM1MzgwZDdlY2JmMDdmMGE5MzFjMDY3Ni5naWaQgaEywg==';
 
             expect(() => {
@@ -12,7 +12,7 @@ describe('AcceleratorImage', () => {
             }).toThrow('Invalid signature');
         });
 
-        it('Should return original when no key is passed', () => {
+        it('[TC-02] Should return original when no key is passed', () => {
             // Given
             const original = 'https://images.example.com/originals/kitten.png';
             // When
@@ -25,7 +25,7 @@ describe('AcceleratorImage', () => {
             expect(image.getUrl()).toEqual(original);
         });
 
-        it('Should return placeholder when no key and no original is passed', () => {
+        it('[TC-03] Should return placeholder when no key and no original is passed', () => {
             // When
             const image = new AcceleratorImage({});
             // Then
@@ -48,7 +48,7 @@ describe('AcceleratorImage', () => {
             });
         });
 
-        it('Should parse a new url', () => {
+        it('[TC-13] Should parse a transformation URL and restore the original URL', () => {
             // Given
             const transformedImageUrl = 'https://images.example.com/1/kd7ktkpTURBXy84ODBjZjYwNGM1MzgwZDdlY2JmMDdmMGE5MzFjMDY3Ni5qcGeRlQfZMS9wdWxjbXMvTURBXy84ODBjZjYwNGM1MzgwZDdlY2JmMDdmMGE5MzFjMDY3Ni5qcGcBwgo';
             // When
@@ -57,7 +57,7 @@ describe('AcceleratorImage', () => {
             expect(newImage.getUrl()).toBe(transformedImageUrl);
         });
 
-        it('Should return original when original is parsed', () => {
+        it('[TC-01] Should return original URL unchanged when no transforms are applied', () => {
             expect(acceleratorImage.getUrl()).toBe(ORIGINAL_IMAGE);
         });
 
@@ -71,7 +71,7 @@ describe('AcceleratorImage', () => {
         //     ).toBe(original.replace('http:', 'https:'));
         // });
 
-        it('Should add transforms', () => {
+        it('[TC-13] Should allow adding transforms after fromTransformationUrl decode', () => {
             // Given
             const transformedImageUrl = 'https://images.example.com/1/DAdktkpTURBXy84ODBjZjYwNGM1MzgwZDdlY2JmMDdmMGE5MzFjMDY3Ni5qcGeRkgAB';
 
@@ -88,7 +88,7 @@ describe('AcceleratorImage', () => {
             expect(image.getUrl()).not.toBe(transformedImageUrl);
         });
 
-        it('Should return URL to original', () => {
+        it('[TC-04] Should return URL to original', () => {
             // Given
             const transformedImageUrl = acceleratorImage
                 .blur(10)
@@ -105,7 +105,7 @@ describe('AcceleratorImage', () => {
             expect(parent.getUrl()).toBe(ORIGINAL_IMAGE);
         });
 
-        it('Should return URL without protocol', () => {
+        it('[TC-07a] Should return URL without protocol when transforms are applied', () => {
             // Given
             const image = new AcceleratorImage({
                 originalImageUrl: ORIGINAL_IMAGE,
@@ -118,7 +118,7 @@ describe('AcceleratorImage', () => {
             expect(withoutProtocol.getUrl()).toBe('//images.example.com/1/a6SktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRkgAB');
         });
 
-        it('Should not return without protocol when returned value is the original image URL', () => {
+        it('[TC-01/TC-07] Should not strip protocol when returned value is the original image URL (no transforms)', () => {
             // Given
             const image = new AcceleratorImage({
                 originalImageUrl: ORIGINAL_IMAGE,
@@ -131,7 +131,7 @@ describe('AcceleratorImage', () => {
             expect(withoutProtocol.getUrl()).toBe(ORIGINAL_IMAGE);
         });
 
-        it('Should return HTTP when explicitly forced', () => {
+        it('[TC-01] Should return original http URL unchanged when no transforms are set', () => {
             // Given
             const image = new AcceleratorImage({
                 originalImageUrl: ORIGINAL_IMAGE_WITHOUT_TLS,
@@ -144,7 +144,7 @@ describe('AcceleratorImage', () => {
             expect(url).toBe(ORIGINAL_IMAGE_WITHOUT_TLS);
         });
 
-        it('Should force HTTPS by default for transformations', () => {
+        it('[TC-09] Should force HTTPS by default for transformations', () => {
             // Given
             const image = new AcceleratorImage({
                 originalImageUrl: ORIGINAL_IMAGE_WITHOUT_TLS,
@@ -157,7 +157,7 @@ describe('AcceleratorImage', () => {
             expect(url.startsWith('https://')).toBeTruthy();
         });
 
-        it('Should return HTTP for transformation when explicitly forced', () => {
+        it('[TC-08] Should return HTTP for transformation when explicitly forced', () => {
             // Given
             const image = new AcceleratorImage({
                 originalImageUrl: ORIGINAL_IMAGE_WITHOUT_TLS,
@@ -170,7 +170,7 @@ describe('AcceleratorImage', () => {
             expect(url.startsWith('http://')).toBeTruthy();
         });
 
-        it('Should raise exception if any other transform is defined with metadata.', () => {
+        it('[TC-17] Should raise exception if any other transform is defined with metadata.', () => {
             // Given
             const image = new AcceleratorImage({
                 originalImageUrl: ORIGINAL_IMAGE,
@@ -183,10 +183,57 @@ describe('AcceleratorImage', () => {
             // Then
             expect(() => withoutProtocol.getUrl()).toThrow('Cannot use metadata transformation with other transformations. Use it as the only transformation.');
         });
+
+        it('[TC-16a] Should return cloned object that is distinct but equal', () => {
+            // Given
+            const clone = acceleratorImage.clone();
+            // Then
+            expect(clone).not.toBe(acceleratorImage);
+            expect(clone.getUrl()).toBe(acceleratorImage.getUrl());
+        });
+
+        it('[TC-16b] Should not mutate original when transforms applied to clone', () => {
+            // Given
+            const clone = acceleratorImage.clone();
+            // When
+            clone
+                .blur(10)
+                .rotate(2)
+                .resize(100, 100);
+            // Then
+            expect(acceleratorImage.getTransforms()).toEqual([]);
+            expect(acceleratorImage.getUrl()).toBe(ORIGINAL_IMAGE);
+            expect(clone).not.toBe(acceleratorImage);
+            expect(clone.getTransforms()).toEqual([[1, 10], [0, 2], [2, 100, 100, true, true]]);
+            expect(clone.getUrl()).toBe('https://images.example.com/1/naHktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeTkgEKkgAClQJkZMPD');
+            expect(clone.getUrl()).not.toBe(acceleratorImage.getUrl());
+        });
+
+        it('[TC-16c] Should not mutate already-transformed original when transforms applied to its clone', () => {
+            // Given
+            const transformedImage = acceleratorImage
+                .blur(10)
+                .rotate(2)
+                .resize(100, 100);
+
+            const clone = transformedImage.clone();
+            // When
+            clone
+                .blur(10)
+                .rotate(2)
+                .resize(100, 100);
+            // Then
+            expect(transformedImage.getTransforms()).toEqual([[1, 10], [0, 2], [2, 100, 100, true, true]]);
+            expect(transformedImage.getUrl()).toBe('https://images.example.com/1/naHktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeTkgEKkgAClQJkZMPD');
+            expect(clone).not.toBe(transformedImage);
+            expect(clone.getTransforms()).toEqual([[1, 10], [0, 2], [2, 100, 100, true, true], [1, 10], [0, 2], [2, 100, 100, true, true]]);
+            expect(clone.getUrl()).toBe('https://images.example.com/1/slkktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeWkgEKkgAClQJkZMPDkgEKkgAClQJkZMPD');
+            expect(clone.getUrl()).not.toBe(transformedImage.getUrl());
+        });
     });
 
     describe('relative', () => {
-        it('Should return relative URL for transforms', () => {
+        it('[TC-06] Should return relative URL for transforms', () => {
             // Given
             const img = new AcceleratorImage({
                 originalImageUrl: 'http://images.example.com/my-bucket/img.jpg',
@@ -202,7 +249,7 @@ describe('AcceleratorImage', () => {
             expect(transformedImageUrl).toEqual('/1/i6Ik9kraHR0cDovL2ltYWdlcy5leGFtcGxlLmNvbS9teS1idWNrZXQvaW1nLmpwZ5GSAAHeAAGhMAU');
         });
 
-        it('Should return relative URL for original', () => {
+        it('[TC-01] Should return original URL unchanged when relative() is set but no transforms applied', () => {
             // Given
             const originalImageUrl = 'http://images.example.com/static/img.jpg';
             const img = new AcceleratorImage({
@@ -218,7 +265,7 @@ describe('AcceleratorImage', () => {
     });
 
     describe('getParent', () => {
-        it('Should return correct parent for external', () => {
+        it('[TC-18] Should return correct parent for external', () => {
             // Given
             const external = 'http://my.test.domain.pl/img.jpg';
             const img = new AcceleratorImage({
@@ -244,7 +291,7 @@ describe('AcceleratorImage', () => {
             });
         });
 
-        it('Should return URL to original', () => {
+        it('[TC-01] Should return external URL unchanged when no transforms are applied', () => {
             // Given
             const originalPath = '/path/image.jpeg';
             const externalUrl = `https://external.domain.com${originalPath}`;
@@ -260,14 +307,14 @@ describe('AcceleratorImage', () => {
             expect(url).toEqual(externalUrl);
         });
 
-        it('Should return URL to transformation', () => {
+        it('[TC-12] Should return URL to transformation', () => {
             // When
             image.setName('abc.jpg');
             // Then
             expect(image.getUrl()).toEqual('https://images.example.com/1/a27ktkraHR0cHM6Ly9leHRlcm5hbC5kb21haW4uY29tL3BhdGgvaW1hZ2UuanBlZ5GTCaY3NTYzOWQG/abc.jpg');
         });
 
-        it('Should parse custom domain URL', () => {
+        it('[TC-13] Should parse custom domain URL', () => {
             // Given
             image.resize(10, 10);
             image.rotate(1);
@@ -277,6 +324,135 @@ describe('AcceleratorImage', () => {
             const otherImage = AcceleratorImage.fromTransformationUrl(transformUrl, TRANSFORM_KEY);
             // Then
             expect(otherImage.getParent().getUrl()).toEqual('https://external.domain.com/path/image.jpeg');
+        });
+    });
+
+    describe('Error conditions', () => {
+        it('[TC-26] Should throw when transformationKey is null and transforms are set', () => {
+            // Given
+            const image = new AcceleratorImage({
+                originalImageUrl: 'https://images.example.com/originals/kitten.png',
+                transformationKey: null,
+                transformationHost: 'images.example.com'
+            });
+            image.rotate(1);
+            // Then
+            expect(() => image.getUrl()).toThrow('Transformation key is required when using transformations or parameters');
+        });
+    });
+
+    describe('TC-25: animation parameter encoding', () => {
+        const ORIG = 'https://images.example.com/originals/kitten.png';
+        const HOST = 'images.example.com';
+
+        it('Should encode animation(false) into getParameters()', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.animation(false);
+            expect(image.getParameters()).toEqual({ 2: false });
+        });
+
+        it('Should encode animation(true) into getParameters()', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.animation(true);
+            expect(image.getParameters()).toEqual({ 2: true });
+        });
+    });
+
+    describe('TC-26: autoOrient parameter encoding', () => {
+        const ORIG = 'https://images.example.com/originals/kitten.png';
+        const HOST = 'images.example.com';
+
+        it('Should encode autoOrient(true) into getParameters()', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.autoOrient(true);
+            expect(image.getParameters()).toEqual({ 3: true });
+        });
+
+        it('Should encode autoOrient(false) into getParameters()', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.autoOrient(false);
+            expect(image.getParameters()).toEqual({ 3: false });
+        });
+    });
+
+    describe('TC-27: keepAspectRatio encoding', () => {
+        const ORIG = 'https://images.example.com/originals/kitten.png';
+        const HOST = 'images.example.com';
+
+        it('Should encode keepAspectRatio with default arguments', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.keepAspectRatio(800, 600);
+            expect(image.getTransforms()).toEqual([[10, 800, 600, 10, 0, 0, 0, 175, 0, 0]]);
+            expect(image.getUrl()).toEqual('https://images.example.com/1/d_sktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRmgrNAyDNAlgKAAAAzK8AAA');
+        });
+
+        it('Should encode keepAspectRatio with non-default arguments', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.keepAspectRatio(800, 600, 20, 255, 0, 0, 200, 10, 5);
+            expect(image.getTransforms()).toEqual([[10, 800, 600, 20, 255, 0, 0, 200, 10, 5]]);
+            expect(image.getUrl()).toEqual('https://images.example.com/1/TJCktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRmgrNAyDNAlgUzP8AAMzICgU');
+        });
+    });
+
+    describe('TC-28: resizeCropAuto encoding', () => {
+        const ORIG = 'https://images.example.com/originals/kitten.png';
+        const HOST = 'images.example.com';
+
+        it('Should encode resizeCropAuto(400, 300)', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.resizeCropAuto(400, 300);
+            expect(image.getTransforms()).toEqual([[5, 400, 300]]);
+            expect(image.getUrl()).toEqual('https://images.example.com/1/7zvktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRkwXNAZDNASw');
+        });
+    });
+
+    describe('TC-29: setBackground encoding', () => {
+        const ORIG = 'https://images.example.com/originals/kitten.png';
+        const HOST = 'images.example.com';
+
+        it('Should encode setBackground with default alpha', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.setBackground(255, 0, 128);
+            expect(image.getTransforms()).toEqual([[6, 255, 0, 128, 255]]);
+            expect(image.getUrl()).toEqual('https://images.example.com/1/EZ-ktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRlQbM_wDMgMz_');
+        });
+    });
+
+    describe('TC-30: setFocalPoint encoding', () => {
+        const ORIG = 'https://images.example.com/originals/kitten.png';
+        const HOST = 'images.example.com';
+
+        it('Should encode setFocalPoint(100, 200)', () => {
+            const image = new AcceleratorImage({ originalImageUrl: ORIG, transformationKey: TRANSFORM_KEY, transformationHost: HOST });
+            image.setFocalPoint(100, 200);
+            expect(image.getTransforms()).toEqual([[12, 100, 200]]);
+            expect(image.getUrl()).toEqual('https://images.example.com/1/dWaktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRkwxkzMg');
+        });
+    });
+
+    describe('TC-31: relative(true) takes precedence over forceHttpProtocol()', () => {
+        it('Should produce a path-only URL even when forceHttpProtocol() was called', () => {
+            const image = new AcceleratorImage({
+                originalImageUrl: 'http://images.example.com/originals/kitten.png',
+                transformationKey: TRANSFORM_KEY,
+                transformationHost: 'images.example.com'
+            });
+            image.rotate(1).forceHttpProtocol().relative(true);
+            const url = image.getUrl();
+            expect(url.startsWith('/1/')).toBeTruthy();
+            expect(url).toBe('/1/dW8ktkuaHR0cDovL2ltYWdlcy5leGFtcGxlLmNvbS9vcmlnaW5hbHMva2l0dGVuLnBuZ5GSAAE');
+        });
+
+        it('Should also produce a path-only URL when relative(true) is called before forceHttpProtocol()', () => {
+            const image = new AcceleratorImage({
+                originalImageUrl: 'http://images.example.com/originals/kitten.png',
+                transformationKey: TRANSFORM_KEY,
+                transformationHost: 'images.example.com'
+            });
+            image.rotate(1).relative(true).forceHttpProtocol();
+            const url = image.getUrl();
+            expect(url.startsWith('/1/')).toBeTruthy();
+            expect(url).toBe('/1/dW8ktkuaHR0cDovL2ltYWdlcy5leGFtcGxlLmNvbS9vcmlnaW5hbHMva2l0dGVuLnBuZ5GSAAE');
         });
     });
 });

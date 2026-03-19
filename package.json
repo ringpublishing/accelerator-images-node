@@ -11,7 +11,8 @@
     },
     "scripts": {
         "build": "tsc",
-        "docs": "typedoc --out docs/ --readme none --plugin typedoc-plugin-markdown src/index.ts --sourceLinkTemplate '{path}:{line}'",
+        "docs": "typedoc --out docs/api/ --readme none --plugin typedoc-plugin-markdown src/index.ts --sourceLinkTemplate '{path}:{line}'",
+        "predocs": "rimraf docs/api",
         "lint": "npm run lint:js",
         "lint:js": "eslint --ext .js,.jsx,.ts,.tsx src/ tests/",
         "lint:js:fix": "npm run lint:js -- --fix",

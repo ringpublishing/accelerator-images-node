@@ -28,8 +28,32 @@ export interface AcceleratorImageParams {
 }
 
 /**
- * @class AcceleratorImage
+ * Helper class for generating Ring Accelerator Images transformation URLs.
  *
+ * Encodes the original image URL, a list of transformations and global parameters
+ * into a single URL-safe token that is served by the Accelerator Images variant.
+ *
+ * When no transformations are set, {@link AcceleratorImage.getUrl} returns the original image URL unchanged.
+ * When at least one transformation or parameter is set, it returns a fully-qualified transformation URL
+ * in the form `{protocol}://{transformationHost}/1/{token}[/{fileName}]`.
+ *
+ * @example Create and encode a transformation URL
+ * ```ts
+ * const image = new AcceleratorImage({
+ *     originalImageUrl: 's3://my-bucket/photo.jpg',
+ *     transformationKey: 'secret',
+ *     transformationHost: 'images.example.com',
+ * });
+ * const url = image.resize(800, 600).imageQuality('auto').getUrl();
+ * ```
+ *
+ * @example Decode an existing transformation URL
+ * ```ts
+ * const image = AcceleratorImage.fromTransformationUrl(
+ *     'https://images.example.com/1/abc123...',
+ *     'secret'
+ * );
+ * ```
  */
 export class AcceleratorImage extends ImageTransformBuilder {
     /**
@@ -56,10 +80,23 @@ export class AcceleratorImage extends ImageTransformBuilder {
     private queryParameters: Record<string, string> = {};
 
     /**
-     * @param params
-     * @param params.originalImageUrl - URL of the original image
-     * @param params.transformationKey - Transformation key
-     * @param params.transformationHost - Transformation host
+     * Creates a new AcceleratorImage instance.
+     *
+     * If `originalImageUrl` is provided and valid (http, https, or s3 protocol), the instance is
+     * immediately initialized. Calling {@link AcceleratorImage.getUrl} without any transformation
+     * will return the original URL as-is.
+     *
+     * If `originalImageUrl` is omitted or `null`, the instance remains uninitialized.
+     * In that case {@link AcceleratorImage.getUrl} throws {@link InvalidParameter} and
+     * {@link AcceleratorImage.toString} returns a placeholder string.
+     *
+     * @param params - Construction parameters. See {@link AcceleratorImageParams} for details.
+     * @param params.originalImageUrl - URL of the original image (`http://`, `https://`, or `s3://`).
+     * @param params.transformationKey - Secret key used to sign and verify the encoded transformation token.
+     * @param params.transformationHost - Hostname of the Accelerator Images variant (e.g. `images.example.com`).
+     *
+     * @throws {InvalidParameter} If `originalImageUrl` uses an unsupported protocol.
+     * @throws {InvalidParameter} If `transformationHost` is missing when `originalImageUrl` is provided.
      */
     constructor({ originalImageUrl, transformationKey, transformationHost }: AcceleratorImageParams) {
         super();
@@ -84,10 +121,17 @@ export class AcceleratorImage extends ImageTransformBuilder {
     }
 
     /**
-     * Parse URL to a transformed image and initialize AcceleratorImage object with transformation parameters
+     * Parses an existing Accelerator Images transformation URL and returns a fully initialized
+     * {@link AcceleratorImage} instance with all transformations and parameters restored.
      *
-     * @param transformedImageUrl - URL of the transformed image
-     * @param transformationKey - Transformation transformationKey that was used to encode transformation parameters
+     * @param transformedImageUrl - A previously generated transformation URL.
+     * @param transformationKey - The secret key that was used to sign the URL.
+     *
+     * @returns A new {@link AcceleratorImage} instance initialized from the decoded URL.
+     *
+     * @throws {UrlError} If the URL cannot be parsed.
+     * @throws {UrlError} If the URL version does not match {@link AcceleratorImage.VERSION}.
+     * @throws {AcceleratorImageError} If the signature embedded in the token is invalid.
      */
     public static fromTransformationUrl(transformedImageUrl: string, transformationKey: string): AcceleratorImage {
         const acceleratorImage = new AcceleratorImage({ originalImageUrl: null, transformationKey });
@@ -97,6 +141,10 @@ export class AcceleratorImage extends ImageTransformBuilder {
         return acceleratorImage;
     }
 
+    /**
+     * Returns `true` when at least one transformation or at least one global parameter
+     * (e.g. {@link imageFormat}, {@link imageQuality}) has been set on this instance.
+     */
     public get hasTransforms(): boolean {
         return this.transforms.length > 0 || Object.keys(this.params).length > 0;
     }
@@ -189,9 +237,14 @@ export class AcceleratorImage extends ImageTransformBuilder {
     }
 
     /**
-     * Set path as relative
+     * Makes the generated URL path-relative (no protocol or host).
      *
-     * @param isRelative
+     * When enabled, {@link AcceleratorImage.getUrl} returns only the path portion
+     * (e.g. `/1/{token}`) instead of a full URL. Has no effect when no transformations
+     * are set — the original image URL is returned unchanged regardless.
+     *
+     * @param isRelative - Pass `false` to revert to an absolute URL. Defaults to `true`.
+     * @returns The current instance for method chaining.
      */
     public relative(isRelative = true): this {
         this.isRelative = isRelative;
@@ -200,13 +253,16 @@ export class AcceleratorImage extends ImageTransformBuilder {
     }
 
     /**
-     * Remove protocol from the transformation URL
+     * Removes the protocol from the generated transformation URL, producing a protocol-relative URL.
+     *
+     * Has no effect when no transformations are set — the original image URL is returned unchanged.
+     *
+     * @returns The current instance for method chaining.
      *
      * @example
-     * Here is a simple example:
      * ```ts
-     * const img = new AcceleratorImage({originalImageUrl: 'https://example.com/img.js', transformationKey: TRANSFORM_KEY});
-     * img.withoutProtocol().toString(); // returns '//example.com/img.js'
+     * const img = new AcceleratorImage({originalImageUrl: 'https://example.com/img.jpg', transformationKey: TRANSFORM_KEY, transformationHost: 'images.example.com'});
+     * img.rotate(1).withoutProtocol().getUrl(); // '//images.example.com/1/...'
      * ```
      */
     public withoutProtocol(): this {
@@ -215,6 +271,11 @@ export class AcceleratorImage extends ImageTransformBuilder {
         return this;
     }
 
+    /**
+     * Forces the generated transformation URL to use the `http` protocol instead of the default `https`.
+     *
+     * @returns The current instance for method chaining.
+     */
     public forceHttpProtocol(): this {
         this.transformationProtocol = 'http';
 
@@ -226,16 +287,27 @@ export class AcceleratorImage extends ImageTransformBuilder {
     }
 
     /**
-     * Change filename in browser
+     * Sets the `Content-Disposition` response header so that the browser treats the image as a
+     * file download with the given filename.
      *
-     * @param name name of file
+     * The filename is encoded as a UTF-8 RFC 5987 parameter
+     * (`attachment; filename*=UTF-8''<name>`).
+     *
+     * @param name - The filename the browser should suggest when saving the image.
+     *
+     * @deprecated This method will be removed in a future major version.
      */
     public saveAs(name: string): void {
         this.setResponseHeader('content-disposition', `attachment; filename*=UTF-8''${name}`);
     }
 
     /**
-     * Returns a new instance of {@link AcceleratorImage} with originalImageUrl image's URL
+     * Returns a new, bare {@link AcceleratorImage} instance pointing at the same original image URL,
+     * with the same `transformationKey` and `transformationHost`, but with **no transformations**.
+     *
+     * Useful when you want to start a new transformation chain from scratch based on the same source image.
+     *
+     * @returns A new {@link AcceleratorImage} instance with no transformations applied.
      */
     public getParent(): AcceleratorImage {
         return new AcceleratorImage({
@@ -243,6 +315,22 @@ export class AcceleratorImage extends ImageTransformBuilder {
             transformationKey: this.transformationKey,
             transformationHost: this.transformationHost
         });
+    }
+
+    /**
+     * Returns a deep clone of this instance with all transformations and parameters copied.
+     *
+     * Mutations applied to the clone do not affect the original instance and vice-versa.
+     * If no transformations are set, this is equivalent to {@link AcceleratorImage.getParent}.
+     *
+     * @returns A new {@link AcceleratorImage} instance with the same transformations.
+     */
+    public clone(): AcceleratorImage {
+        if (!this.hasTransforms) {
+            return this.getParent();
+        }
+
+        return AcceleratorImage.fromTransformationUrl(this.getUrl(), this.transformationKey);
     }
 
     /**
@@ -257,13 +345,16 @@ export class AcceleratorImage extends ImageTransformBuilder {
     }
 
     /**
-     * Get image's URL
+     * Returns the URL for this image.
      *
-     * @rationale
-     * When an object does not have and transformations nor transformation parameters set this will return URL to the original image.
-     * When transformations are set, this will return URL to the transformed image.
+     * - When **no** transformations or global parameters are set, returns the original image URL as-is.
+     * - When **at least one** transformation or parameter is set, returns a fully-qualified
+     *   Accelerator Images transformation URL.
      *
-     * @throws {InvalidParameter} when object is not initialized.
+     * @returns The original image URL or the encoded transformation URL.
+     *
+     * @throws {InvalidParameter} When the instance is not initialized (no `originalImageUrl` was provided).
+     * @throws {InvalidParameter} When {@link metadata} is combined with other transformations.
      */
     public getUrl(): string {
         if (!this.isInitialized) {
@@ -274,6 +365,10 @@ export class AcceleratorImage extends ImageTransformBuilder {
             return this.originalImageUrl;
         }
 
+        if (!this.transformationKey) {
+            throw new InvalidParameter('Transformation key is required when using transformations or parameters');
+        }
+
         if (this.getMetadata() && this.getTransforms().length > 1) {
             throw new InvalidParameter('Cannot use metadata transformation with other transformations. Use it as the only transformation.');
         }
@@ -282,7 +377,10 @@ export class AcceleratorImage extends ImageTransformBuilder {
     }
 
     /**
-     * @see {@link AcceleratorImage#getUrl}
+     * Returns the same value as {@link AcceleratorImage.getUrl}.
+     * When the instance is not initialized, returns a placeholder string instead of throwing.
+     *
+     * @returns The transformation URL, the original image URL, or `'[Uninitialized AcceleratorImage object]'`.
      */
     public toString(): string {
         if (!this.isInitialized) {
@@ -312,11 +410,21 @@ export class AcceleratorImage extends ImageTransformBuilder {
     }
 
     /**
-     * Add file name to path
+     * Appends a human-readable filename to the transformation URL path and registers a `setName`
+     * transformation in the encoded token.
      *
-     * @override
+     * This override differs from {@link ImageTransformBuilder.setName} in two ways:
+     * - The full `name` value is appended as an extra path segment at the end of the URL
+     *   (e.g. `.../1/{token}/photo.jpg`), which helps CDN logs and browser downloads.
+     * - Only the first 6 characters of the MD5 hex digest of `name` are passed as the `name`
+     *   argument to the base `setName` transformation, keeping the encoded token compact.
      *
-     * @param name Target file name
+     * @param name - Target filename. Must not contain `/`.
+     * @returns The current instance for method chaining.
+     *
+     * @throws {InvalidParameter} If `name` contains a `/` character.
+     *
+     * @see {@link https://developer.ringpublishing.com/docs/Accelerator/topics/images/transformations.html#setname}
      */
     public setName(name: string): this {
         if (name.indexOf('/') !== -1) {

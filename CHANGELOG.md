@@ -1,6 +1,24 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.3.0 - 2026-03-17
+### Added
+- [@alacki]: Added language-agnostic implementation specification in `docs/spec/SPECIFICATION.md` covering URL structure, encoding pipeline, transform/parameter schema tables, and error conditions.
+- [@alacki]: Added deterministic test vectors in `docs/spec/TEST_CASES.md` for use when porting the library to other languages.
+- [@alacki]: Added `docs/spec/SPEC_GUIDE.md` describing scope, maintenance rules, and a regeneration prompt for the spec.
+- [@alacki]: Added `docs/spec/PORTING_GUIDE.md` with step-by-step instructions for generating a port using Claude Code or GitHub Copilot Chat.
+- [@alacki]: Added `.github/copilot-instructions.md` with repository-level Copilot coding rules.
+- [@alacki]: Added `.github/pull_request_template.md` with a contribution checklist.
+
+### Changed
+- [@alacki]: API documentation output moved from `docs/` to `docs/api/` to separate auto-generated from hand-maintained content.
+- [@alacki]: Improved JSDoc for all public methods and the class description of `AcceleratorImage`.
+- [@alacki]: `saveAs` transform marked as `@deprecated`.
+
+## 2.2.0 - 2026-02-04
+### Added
+- [@dbucki]: Added `clone` function to enable further transforms without mutating the base image.
+
 ## 2.1.0 - 2025-11-03
 ### Added
 - [@rmusial2]: Added `setFocalPoint` transformation to set focal point of the image.

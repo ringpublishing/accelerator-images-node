@@ -14,16 +14,16 @@ describe('AcceleratorImage - S3 Parent', () => {
             });
         });
 
-        it('Should return URL to original', () => {
+        it('[TC-10] Should return URL to original', () => {
             expect(url.getUrl()).toEqual('s3://some-s3-bucket/images/d5b8348d9bbfce94534d66db1f330f44.jpg');
         });
 
-        it('Should return URL with transforms', () => {
+        it('[TC-11] Should return URL with transforms', () => {
             url.setName('abc.jpg');
             expect(url.getUrl()).toEqual('https://img.example.com/1/6Pdktk_czM6Ly9zb21lLXMzLWJ1Y2tldC9pbWFnZXMvZDViODM0OGQ5YmJmY2U5NDUzNGQ2NmRiMWYzMzBmNDQuanBnkZMJpjc1NjM5ZAY/abc.jpg');
         });
 
-        it('Should parse using fromTransformationUrl', () => {
+        it('[TC-13] Should parse using fromTransformationUrl', () => {
             // Given
             url.resize(10, 10);
             url.rotate(1);
@@ -37,7 +37,7 @@ describe('AcceleratorImage - S3 Parent', () => {
             expect(urlRev.getResize()).toEqual([10, 10, true, true]);
         });
 
-        it('Should preserve parent URL', () => {
+        it('[TC-14] Should preserve parent URL', () => {
             // Given
             url.resize(10, 10);
             url.rotate(1);
