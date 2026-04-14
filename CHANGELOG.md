@@ -1,6 +1,10 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.3.1 - 2026-04-13
+### Fixed
+- [@dbucki]: Fixed signature validation for URL-safe base64 (`-`/`_`) encoded transformations.
+
 ## 2.3.0 - 2026-03-17
 ### Added
 - [@alacki]: Added language-agnostic implementation specification in `docs/spec/SPECIFICATION.md` covering URL structure, encoding pipeline, transform/parameter schema tables, and error conditions.

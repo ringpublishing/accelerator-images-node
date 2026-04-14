@@ -1489,7 +1489,7 @@ If `name` contains a `/` character.
 
 #### Defined in
 
-[src/AcceleratorImage.ts:425](src/AcceleratorImage.ts:425)
+[src/AcceleratorImage.ts:429](src/AcceleratorImage.ts:429)
 
 ___
 
@@ -1512,7 +1512,7 @@ The transformation URL, the original image URL, or `'[Uninitialized AcceleratorI
 
 #### Defined in
 
-[src/AcceleratorImage.ts:381](src/AcceleratorImage.ts:381)
+[src/AcceleratorImage.ts:385](src/AcceleratorImage.ts:385)
 
 ___
 

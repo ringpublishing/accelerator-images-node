@@ -48,8 +48,7 @@ export class Decoder {
             encodedDataBase64 = encodedData;
         }
 
-        const base64Hash = md5(`${encodedDataBase64}/${key}`, 'base64');
-        const signature = base64Hash.slice(0, 3).replace(/\+/g, '-').replace(/\//g, '_');
+        const signature = Decoder.getSignature(encodedDataBase64, key);
 
         return signature + encodedDataBase64;
     }
@@ -89,12 +88,18 @@ export class Decoder {
         return [url, transforms, params];
     }
 
+    private static getSignature(dataString: string | Buffer, transformKey: string): string {
+        const data = `${dataString}/${transformKey}`;
+        const hash = md5(data, 'base64').slice(0, 3);
+        const signature = hash.replace(/\+/g, '-').replace(/\//g, '_');
+
+        return signature;
+    }
+
     private static checkSignature(encodedTransformationToVerify: string, transformKey: string): void {
         const dataString = encodedTransformationToVerify.slice(3);
         const signature = encodedTransformationToVerify.slice(0, 3);
-
-        const data = `${dataString}/${transformKey}`;
-        const calculated = md5(data, 'base64').slice(0, 3);
+        const calculated = Decoder.getSignature(dataString, transformKey);
 
         if (calculated !== signature) {
             throw new AcceleratorImageError('Invalid signature');
