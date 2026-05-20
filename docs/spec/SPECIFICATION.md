@@ -296,6 +296,8 @@ Parameters are encoded as a map `{ parameterCode: encodedValue }`.
 | 1 | `imageQuality` | enum | `1` (`medium`) |
 | 2 | `animation` | boolean | `true` |
 | 3 | `autoOrient` | boolean | `false` |
+| 5 | `extractDominantColor` | boolean | `false` |
+| 6 | `extractDimensions` | boolean | `false` |
 
 > **Note:** These are server-side defaults that describe server behavior when a parameter is
 > absent from the token. `getParameters()` MUST only return values explicitly set by the caller
@@ -303,6 +305,13 @@ Parameters are encoded as a map `{ parameterCode: encodedValue }`.
 
 > **Note:** Parameter code `4` (`autoImageFormat`) is reserved for internal use and MUST NOT
 > be set or read by client implementations.
+
+> **Note:** Parameters `extractDominantColor` (code 5) and `extractDimensions` (code 6)
+> instruct the worker to compute additional image metadata and return it as response headers
+> (`x-acc-img-dominant-color`, `x-acc-img-color-palette`, `x-acc-img-width`, `x-acc-img-height`).
+> When used together with the `metadata()` transform, the extracted values are also included
+> in the JSON response body. These parameters accept no arguments — calling the setter always
+> stores `true`.
 
 ### 7.1 `imageFormat` Enum Values
 
@@ -555,3 +564,5 @@ string representations, integers returned as numbers, booleans as booleans).
 | `getImageQuality()` | The decoded quality string (e.g. `"high"`) | `undefined` |
 | `getAnimation()` | `boolean` | `undefined` |
 | `getAutoOrient()` | `boolean` | `undefined` |
+| `getExtractDominantColor()` | `boolean` | `undefined` |
+| `getExtractDimensions()` | `boolean` | `undefined` |

@@ -455,4 +455,70 @@ describe('AcceleratorImage', () => {
             expect(url).toBe('/1/dW8ktkuaHR0cDovL2ltYWdlcy5leGFtcGxlLmNvbS9vcmlnaW5hbHMva2l0dGVuLnBuZ5GSAAE');
         });
     });
+
+    describe('TC-32: extractDominantColor parameter', () => {
+        it('Should encode extractDominantColor in the URL', () => {
+            const image = new AcceleratorImage({
+                originalImageUrl: 'https://images.example.com/originals/kitten.png',
+                transformationKey: TRANSFORM_KEY,
+                transformationHost: 'images.example.com'
+            });
+            image.extractDominantColor();
+            expect(image.getParameters()).toEqual({ 5: true });
+            expect(image.getUrl()).toBe(
+                'https://images.example.com/1/Cx8k9kvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeQ3gABoTXD'
+            );
+        });
+    });
+
+    describe('TC-33: extractDominantColor + extractDimensions', () => {
+        it('Should encode both extraction params in the URL', () => {
+            const image = new AcceleratorImage({
+                originalImageUrl: 'https://images.example.com/originals/kitten.png',
+                transformationKey: TRANSFORM_KEY,
+                transformationHost: 'images.example.com'
+            });
+            image.extractDominantColor();
+            image.extractDimensions();
+            expect(image.getParameters()).toEqual({ 5: true, 6: true });
+            expect(image.getUrl()).toBe(
+                'https://images.example.com/1/JHdk9kvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeQ3gACoTXDoTbD'
+            );
+        });
+    });
+
+    describe('TC-34: extractDominantColor + metadata transform', () => {
+        it('Should encode extractDominantColor param together with metadata transform', () => {
+            const image = new AcceleratorImage({
+                originalImageUrl: 'https://images.example.com/originals/kitten.png',
+                transformationKey: TRANSFORM_KEY,
+                transformationHost: 'images.example.com'
+            });
+            image.extractDominantColor();
+            image.metadata('basic');
+            expect(image.getParameters()).toEqual({ 5: true });
+            expect(image.getTransforms()).toEqual([[11, 0]]);
+            expect(image.getUrl()).toBe(
+                'https://images.example.com/1/eCbk9kvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRkgsA3gABoTXD'
+            );
+        });
+    });
+
+    describe('TC-35: resize + extractDominantColor + extractDimensions', () => {
+        it('Should encode extraction params alongside resize transform', () => {
+            const image = new AcceleratorImage({
+                originalImageUrl: 'https://images.example.com/originals/kitten.png',
+                transformationKey: TRANSFORM_KEY,
+                transformationHost: 'images.example.com'
+            });
+            image.resize(800, 600);
+            image.extractDominantColor();
+            image.extractDimensions();
+            expect(image.getParameters()).toEqual({ 5: true, 6: true });
+            expect(image.getTransforms()).toEqual([[2, 800, 600, true, true]]);
+            expect(image.getUrl()).toBe(
+                'https://images.example.com/1/UTfk9kvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRlQLNAyDNAljDw94AAqE1w6E2ww'
+            );
+        });
+    });
 });

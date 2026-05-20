@@ -86,6 +86,55 @@ describe('ImageTransformsBuilder', () => {
                 expect(result.getAutoOrient()).toEqual(true);
             });
         });
+
+        describe('extractDominantColor', () => {
+            it('[TC-32] should set extractDominantColor', () => {
+                // Given
+                const builder = new ImageTransformBuilder();
+                // When
+                const result = builder.extractDominantColor();
+                // Then
+                expect(result.getParameters()).toEqual({ 5: true });
+                expect(result.getExtractDominantColor()).toEqual(true);
+            });
+
+            it('getExtractDominantColor should return undefined when not set', () => {
+                // Given
+                const builder = new ImageTransformBuilder();
+                // Then
+                expect(builder.getExtractDominantColor()).toBeUndefined();
+            });
+        });
+
+        describe('extractDimensions', () => {
+            it('should set extractDimensions', () => {
+                // Given
+                const builder = new ImageTransformBuilder();
+                // When
+                const result = builder.extractDimensions();
+                // Then
+                expect(result.getParameters()).toEqual({ 6: true });
+                expect(result.getExtractDimensions()).toEqual(true);
+            });
+
+            it('getExtractDimensions should return undefined when not set', () => {
+                // Given
+                const builder = new ImageTransformBuilder();
+                // Then
+                expect(builder.getExtractDimensions()).toBeUndefined();
+            });
+        });
+
+        describe('extractDominantColor + extractDimensions', () => {
+            it('[TC-33] should set both extraction params', () => {
+                // Given
+                const builder = new ImageTransformBuilder();
+                // When
+                const result = builder.extractDominantColor().extractDimensions();
+                // Then
+                expect(result.getParameters()).toEqual({ 5: true, 6: true });
+            });
+        });
     });
 
     describe('Transforms', () => {

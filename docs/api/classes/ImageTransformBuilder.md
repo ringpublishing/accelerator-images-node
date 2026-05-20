@@ -27,10 +27,14 @@ Builds image transformation metadata object.
 - [autoOrient](ImageTransformBuilder.md#autoorient)
 - [blur](ImageTransformBuilder.md#blur)
 - [crop](ImageTransformBuilder.md#crop)
+- [extractDimensions](ImageTransformBuilder.md#extractdimensions)
+- [extractDominantColor](ImageTransformBuilder.md#extractdominantcolor)
 - [getAnimation](ImageTransformBuilder.md#getanimation)
 - [getAutoOrient](ImageTransformBuilder.md#getautoorient)
 - [getBlur](ImageTransformBuilder.md#getblur)
 - [getCrop](ImageTransformBuilder.md#getcrop)
+- [getExtractDimensions](ImageTransformBuilder.md#getextractdimensions)
+- [getExtractDominantColor](ImageTransformBuilder.md#getextractdominantcolor)
 - [getGrayscale](ImageTransformBuilder.md#getgrayscale)
 - [getHash](ImageTransformBuilder.md#gethash)
 - [getImageFormat](ImageTransformBuilder.md#getimageformat)
@@ -180,7 +184,7 @@ Apply blur effect to the image
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:262](src/ImageTransformBuilder.ts:262)
+[src/ImageTransformBuilder.ts:331](src/ImageTransformBuilder.ts:331)
 
 ___
 
@@ -211,7 +215,58 @@ Crop image to a given size
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:309](src/ImageTransformBuilder.ts:309)
+[src/ImageTransformBuilder.ts:378](src/ImageTransformBuilder.ts:378)
+
+___
+
+### extractDimensions
+
+▸ **extractDimensions**(): `this`
+
+Extract the width and height of the transformed (output) image.
+
+Image response headers:
+- `x-acc-img-width` — output width in pixels, e.g. `800`
+- `x-acc-img-height` — output height in pixels, e.g. `600`
+
+JSON response fields (when `metadata()` is in pipeline):
+- `width` and `height` — already present in basic metadata response
+
+#### Returns
+
+`this`
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:258](src/ImageTransformBuilder.ts:258)
+
+___
+
+### extractDominantColor
+
+▸ **extractDominantColor**(): `this`
+
+Extract the dominant color and a palette of up to 3 prominent colors
+from the transformed image.
+
+Uses k-means clustering in CIE Lab color space with HSL correction and
+WCAG 7:1 contrast verification against white text.
+
+Image response headers:
+- `x-acc-img-dominant-color` — single hex value without `#`, e.g. `2a1f4e`
+- `x-acc-img-color-palette` — comma-separated top 3 hex values, e.g. `2a1f4e,8b3a2f,1a5c3d`
+
+JSON response fields (when `metadata()` is in pipeline):
+- `dominantColor` — string, e.g. `"2a1f4e"`
+- `colorPalette` — array of strings, e.g. `["2a1f4e", "8b3a2f", "1a5c3d"]`
+
+#### Returns
+
+`this`
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:235](src/ImageTransformBuilder.ts:235)
 
 ___
 
@@ -259,7 +314,7 @@ Get blur transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:271](src/ImageTransformBuilder.ts:271)
+[src/ImageTransformBuilder.ts:340](src/ImageTransformBuilder.ts:340)
 
 ___
 
@@ -275,7 +330,39 @@ Get crop transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:318](src/ImageTransformBuilder.ts:318)
+[src/ImageTransformBuilder.ts:387](src/ImageTransformBuilder.ts:387)
+
+___
+
+### getExtractDimensions
+
+▸ **getExtractDimensions**(): `undefined` \| `boolean`
+
+Get extractDimensions parameter value. Returns `undefined` if not set.
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:267](src/ImageTransformBuilder.ts:267)
+
+___
+
+### getExtractDominantColor
+
+▸ **getExtractDominantColor**(): `undefined` \| `boolean`
+
+Get extractDominantColor parameter value. Returns `undefined` if not set.
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Defined in
+
+[src/ImageTransformBuilder.ts:244](src/ImageTransformBuilder.ts:244)
 
 ___
 
@@ -293,7 +380,7 @@ When the transformation is set this always returns an empty array (grayscale has
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:338](src/ImageTransformBuilder.ts:338)
+[src/ImageTransformBuilder.ts:407](src/ImageTransformBuilder.ts:407)
 
 ___
 
@@ -309,7 +396,7 @@ Get hash transformation arguments in decoded form. Returns undefined if the tran
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:427](src/ImageTransformBuilder.ts:427)
+[src/ImageTransformBuilder.ts:496](src/ImageTransformBuilder.ts:496)
 
 ___
 
@@ -361,7 +448,7 @@ Get keepAspectRatio transformation arguments in decoded form. Returns undefined 
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:500](src/ImageTransformBuilder.ts:500)
+[src/ImageTransformBuilder.ts:569](src/ImageTransformBuilder.ts:569)
 
 ___
 
@@ -377,7 +464,7 @@ Get metadata transformation arguments in decoded form. Returns `undefined` if th
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:225](src/ImageTransformBuilder.ts:225)
+[src/ImageTransformBuilder.ts:294](src/ImageTransformBuilder.ts:294)
 
 ___
 
@@ -393,7 +480,7 @@ Get overlay transformation arguments in decoded form. Returns undefined if the t
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:407](src/ImageTransformBuilder.ts:407)
+[src/ImageTransformBuilder.ts:476](src/ImageTransformBuilder.ts:476)
 
 ___
 
@@ -413,7 +500,7 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:509](src/ImageTransformBuilder.ts:509)
+[src/ImageTransformBuilder.ts:578](src/ImageTransformBuilder.ts:578)
 
 ___
 
@@ -445,7 +532,7 @@ Get resize transformation arguments in decoded form. Returns undefined if the tr
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:294](src/ImageTransformBuilder.ts:294)
+[src/ImageTransformBuilder.ts:363](src/ImageTransformBuilder.ts:363)
 
 ___
 
@@ -461,7 +548,7 @@ Get resizeCropAuto transformation arguments in decoded form. Returns undefined i
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:361](src/ImageTransformBuilder.ts:361)
+[src/ImageTransformBuilder.ts:430](src/ImageTransformBuilder.ts:430)
 
 ___
 
@@ -477,7 +564,7 @@ Get rotate transformation arguments in decoded form. Returns undefined if the tr
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:250](src/ImageTransformBuilder.ts:250)
+[src/ImageTransformBuilder.ts:319](src/ImageTransformBuilder.ts:319)
 
 ___
 
@@ -493,7 +580,7 @@ Get setBackground transformation arguments in decoded form. Returns undefined if
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:384](src/ImageTransformBuilder.ts:384)
+[src/ImageTransformBuilder.ts:453](src/ImageTransformBuilder.ts:453)
 
 ___
 
@@ -509,7 +596,7 @@ Get setFocalPoint transformation arguments in decoded form. Returns undefined if
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:469](src/ImageTransformBuilder.ts:469)
+[src/ImageTransformBuilder.ts:538](src/ImageTransformBuilder.ts:538)
 
 ___
 
@@ -525,7 +612,7 @@ Get setName transformation arguments in decoded form. Returns undefined if the t
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:448](src/ImageTransformBuilder.ts:448)
+[src/ImageTransformBuilder.ts:517](src/ImageTransformBuilder.ts:517)
 
 ___
 
@@ -545,7 +632,7 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:530](src/ImageTransformBuilder.ts:530)
+[src/ImageTransformBuilder.ts:599](src/ImageTransformBuilder.ts:599)
 
 ___
 
@@ -581,7 +668,7 @@ Convert Image to grayscale
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:327](src/ImageTransformBuilder.ts:327)
+[src/ImageTransformBuilder.ts:396](src/ImageTransformBuilder.ts:396)
 
 ___
 
@@ -607,7 +694,7 @@ Change path in original image URL to a md5 or sha1 hash
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:418](src/ImageTransformBuilder.ts:418)
+[src/ImageTransformBuilder.ts:487](src/ImageTransformBuilder.ts:487)
 
 ___
 
@@ -703,7 +790,7 @@ Extends the picture to match given aspect ratio by adding blurred image of itsel
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:488](src/ImageTransformBuilder.ts:488)
+[src/ImageTransformBuilder.ts:557](src/ImageTransformBuilder.ts:557)
 
 ___
 
@@ -739,7 +826,7 @@ If an unsupported mode value is provided.
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:216](src/ImageTransformBuilder.ts:216)
+[src/ImageTransformBuilder.ts:285](src/ImageTransformBuilder.ts:285)
 
 ___
 
@@ -768,7 +855,7 @@ Combine image with another one
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:398](src/ImageTransformBuilder.ts:398)
+[src/ImageTransformBuilder.ts:467](src/ImageTransformBuilder.ts:467)
 
 ___
 
@@ -789,7 +876,7 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:517](src/ImageTransformBuilder.ts:517)
+[src/ImageTransformBuilder.ts:586](src/ImageTransformBuilder.ts:586)
 
 ___
 
@@ -818,7 +905,7 @@ Resize image with preserving aspect ratio
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:285](src/ImageTransformBuilder.ts:285)
+[src/ImageTransformBuilder.ts:354](src/ImageTransformBuilder.ts:354)
 
 ___
 
@@ -845,7 +932,7 @@ Crop image automatically to given width and height
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:352](src/ImageTransformBuilder.ts:352)
+[src/ImageTransformBuilder.ts:421](src/ImageTransformBuilder.ts:421)
 
 ___
 
@@ -879,7 +966,7 @@ The angle parameter specifies the number of 90 degree clockwise rotations to per
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:241](src/ImageTransformBuilder.ts:241)
+[src/ImageTransformBuilder.ts:310](src/ImageTransformBuilder.ts:310)
 
 ___
 
@@ -908,7 +995,7 @@ Add background to image with alpha channel
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:375](src/ImageTransformBuilder.ts:375)
+[src/ImageTransformBuilder.ts:444](src/ImageTransformBuilder.ts:444)
 
 ___
 
@@ -935,7 +1022,7 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:460](src/ImageTransformBuilder.ts:460)
+[src/ImageTransformBuilder.ts:529](src/ImageTransformBuilder.ts:529)
 
 ___
 
@@ -962,7 +1049,7 @@ Add file name to path
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:439](src/ImageTransformBuilder.ts:439)
+[src/ImageTransformBuilder.ts:508](src/ImageTransformBuilder.ts:508)
 
 ___
 
@@ -983,4 +1070,4 @@ ___
 
 #### Defined in
 
-[src/ImageTransformBuilder.ts:504](src/ImageTransformBuilder.ts:504)
+[src/ImageTransformBuilder.ts:573](src/ImageTransformBuilder.ts:573)

@@ -57,5 +57,33 @@ describe('schema', () => {
             // then
             expect(result).toEqual(false);
         });
+
+        it('should return encoded value for extractDominantColor', () => {
+            // given
+            const schema = getParameterSchema(ParameterCode.extractDominantColor);
+            // when
+            const result = getEncodedValue(schema, true);
+            // then
+            expect(result).toEqual(true);
+        });
+
+        it('should return encoded value for extractDimensions', () => {
+            // given
+            const schema = getParameterSchema(ParameterCode.extractDimensions);
+            // when
+            const result = getEncodedValue(schema, true);
+            // then
+            expect(result).toEqual(true);
+        });
+    });
+
+    describe('ParameterCode', () => {
+        it('should have extractDominantColor = 5', () => {
+            expect(ParameterCode.extractDominantColor).toBe(5);
+        });
+
+        it('should have extractDimensions = 6', () => {
+            expect(ParameterCode.extractDimensions).toBe(6);
+        });
     });
 });

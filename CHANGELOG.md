@@ -1,6 +1,12 @@
 # CHANGELOG
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 2.4.0 - 2026-05-18
+### Added
+- [@alacki]: Added `extractDominantColor()` and `extractDimensions()` parameter methods with corresponding getters.
+- [@alacki]: Added parameter codes 5 (`extractDominantColor`) and 6 (`extractDimensions`) to the schema.
+- [@alacki]: Updated `SPECIFICATION.md` (Section 7, 13.4) and `TEST_CASES.md` (TC-32 through TC-35).
+
 ## 2.3.1 - 2026-04-13
 ### Fixed
 - [@dbucki]: Fixed signature validation for URL-safe base64 (`-`/`_`) encoded transformations.

@@ -200,6 +200,75 @@ export class ImageTransformBuilder {
     }
 
     /**
+     * ── Metadata extraction ─────────────────────────────────────────────────
+     *
+     * Methods prefixed with `extract` instruct the transform worker to compute
+     * metadata about the **output** image and attach it to the response.
+     *
+     * Delivery depends on response type:
+     * - Image response (no `metadata()` in pipeline): results in `x-acc-img-*` headers
+     * - JSON response (`metadata()` present): results as fields in JSON body
+     *
+     * Extraction is computed once (when the transform is first generated) and
+     * cached with the transformed image — there is no per-request cost.
+     *
+     * Because extraction flags are encoded in the transformation token, enabling
+     * them produces a **different cache key** than the same transform without
+     * extraction. This guarantees that the S3 object always contains the metadata.
+     */
+
+    /**
+     * Extract the dominant color and a palette of up to 3 prominent colors
+     * from the transformed image.
+     *
+     * Uses k-means clustering in CIE Lab color space with HSL correction and
+     * WCAG 7:1 contrast verification against white text.
+     *
+     * Image response headers:
+     * - `x-acc-img-dominant-color` — single hex value without `#`, e.g. `2a1f4e`
+     * - `x-acc-img-color-palette` — comma-separated top 3 hex values, e.g. `2a1f4e,8b3a2f,1a5c3d`
+     *
+     * JSON response fields (when `metadata()` is in pipeline):
+     * - `dominantColor` — string, e.g. `"2a1f4e"`
+     * - `colorPalette` — array of strings, e.g. `["2a1f4e", "8b3a2f", "1a5c3d"]`
+     */
+    public extractDominantColor(): this {
+        this.setParameter(ParameterCode.extractDominantColor, true);
+
+        return this;
+    }
+
+    /**
+     * Get extractDominantColor parameter value. Returns `undefined` if not set.
+     */
+    public getExtractDominantColor(): boolean | undefined {
+        return this.getParameter(ParameterCode.extractDominantColor) as boolean | undefined;
+    }
+
+    /**
+     * Extract the width and height of the transformed (output) image.
+     *
+     * Image response headers:
+     * - `x-acc-img-width` — output width in pixels, e.g. `800`
+     * - `x-acc-img-height` — output height in pixels, e.g. `600`
+     *
+     * JSON response fields (when `metadata()` is in pipeline):
+     * - `width` and `height` — already present in basic metadata response
+     */
+    public extractDimensions(): this {
+        this.setParameter(ParameterCode.extractDimensions, true);
+
+        return this;
+    }
+
+    /**
+     * Get extractDimensions parameter value. Returns `undefined` if not set.
+     */
+    public getExtractDimensions(): boolean | undefined {
+        return this.getParameter(ParameterCode.extractDimensions) as boolean | undefined;
+    }
+
+    /**
      * Request image metadata instead of the transformed image.
      *
      * When this transformation is set, Accelerator returns metadata about the image (dimensions,

@@ -523,3 +523,110 @@ https://images.example.com/1/dWaktkvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2lu
 > order in which protocol modifiers and `relative(true)` are applied, the resulting URL
 > must be path-only (no scheme, no host). See also the precedence note in Section 12.7
 > of the specification.
+
+---
+
+## TC-32: `extractDominantColor` parameter
+
+**Input:**
+- `originalImageUrl = "https://images.example.com/originals/kitten.png"`
+- `transformationKey = "abc"`
+- `transformationHost = "images.example.com"`
+- Parameters: `extractDominantColor()`
+
+**Expected `getParameters()`:**
+```json
+{"5": true}
+```
+
+**Expected output of `getUrl()`:**
+```
+https://images.example.com/1/Cx8k9kvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeQ3gABoTXD
+```
+
+> The `extractDominantColor()` method takes no arguments and always stores `true` at
+> parameter code 5. The parameter instructs the worker to compute a dominant color and
+> palette, returned via `x-acc-img-dominant-color` and `x-acc-img-color-palette` headers.
+
+---
+
+## TC-33: `extractDominantColor` + `extractDimensions` parameters
+
+**Input:**
+- `originalImageUrl = "https://images.example.com/originals/kitten.png"`
+- `transformationKey = "abc"`
+- `transformationHost = "images.example.com"`
+- Parameters: `extractDominantColor()`, `extractDimensions()`
+
+**Expected `getParameters()`:**
+```json
+{"5": true, "6": true}
+```
+
+**Expected output of `getUrl()`:**
+```
+https://images.example.com/1/JHdk9kvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeQ3gACoTXDoTbD
+```
+
+> Both extraction parameters are independent. Each adds its own key to the encoded params
+> map. The worker returns `x-acc-img-width` and `x-acc-img-height` for dimensions, and
+> `x-acc-img-dominant-color` and `x-acc-img-color-palette` for color extraction.
+
+---
+
+## TC-34: `extractDominantColor` + `metadata` transform
+
+**Input:**
+- `originalImageUrl = "https://images.example.com/originals/kitten.png"`
+- `transformationKey = "abc"`
+- `transformationHost = "images.example.com"`
+- Parameters: `extractDominantColor()`
+- Transformations: `metadata("basic")`
+
+**Expected `getParameters()`:**
+```json
+{"5": true}
+```
+
+**Expected encoded transforms:**
+```json
+[[11, 0]]
+```
+
+**Expected output of `getUrl()`:**
+```
+https://images.example.com/1/eCbk9kvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRkgsA3gABoTXD
+```
+
+> When `extractDominantColor` is combined with the `metadata()` transform, the worker
+> includes `dominantColor` and `palette` fields in the JSON metadata response body
+> alongside the standard metadata fields.
+
+---
+
+## TC-35: `resize` + `extractDominantColor` + `extractDimensions`
+
+**Input:**
+- `originalImageUrl = "https://images.example.com/originals/kitten.png"`
+- `transformationKey = "abc"`
+- `transformationHost = "images.example.com"`
+- Transformations: `resize(800, 600)`
+- Parameters: `extractDominantColor()`, `extractDimensions()`
+
+**Expected `getParameters()`:**
+```json
+{"5": true, "6": true}
+```
+
+**Expected encoded transforms:**
+```json
+[[2, 800, 600, true, true]]
+```
+
+**Expected output of `getUrl()`:**
+```
+https://images.example.com/1/UTfk9kvaHR0cHM6Ly9pbWFnZXMuZXhhbXBsZS5jb20vb3JpZ2luYWxzL2tpdHRlbi5wbmeRlQLNAyDNAljDw94AAqE1w6E2ww
+```
+
+> Extraction parameters work alongside regular transforms. The dominant color and
+> dimensions are computed from the final (post-transform) image.

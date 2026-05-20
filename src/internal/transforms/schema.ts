@@ -424,6 +424,16 @@ export const schema: AvailableTransformsSchema = {
             name: 'autoImageFormat', // This is a reserved parameter for internal use
             type: 'boolean',
             default: true
+        },
+        5: {
+            name: 'extractDominantColor',
+            type: 'boolean',
+            default: false
+        },
+        6: {
+            name: 'extractDimensions',
+            type: 'boolean',
+            default: false
         }
     }
 };
@@ -433,7 +443,9 @@ export enum ParameterCode {
     imageQuality = 1,
     animation = 2,
     autoOrient = 3,
-    autoImageFormat = 4
+    autoImageFormat = 4,
+    extractDominantColor = 5,
+    extractDimensions = 6
 }
 
 export enum TransformCode {
